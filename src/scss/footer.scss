@@ -1,0 +1,82 @@
+@import "../App.scss";
+.footer {
+  width: 100%;
+  height: 30rem;
+  background-color: #292929;
+  @include flexOne(column);
+  justify-content: space-between;
+  .footer__description {
+    height: 80%;
+    width: 100%;
+    @include flexOne(row);
+    .description__container {
+      width: 70%;
+      @include flexOne(row);
+      .description__logo {
+        width: 33.3%;
+        text-align: left;
+        h2 {
+          font-family: $albaFamily;
+          font-size: 60px;
+          color: $redColor;
+        }
+      }
+      .description__links {
+        width: 33.3%;
+        .link-item {
+          list-style: none;
+          font-size: 25px;
+          font-family: $robotoFamily;
+          color: $whiteColor;
+          text-align: left;
+          margin: 7px 0;
+        }
+      }
+      .description__comments {
+        width: 33.3%;
+        @include flexOne(column);
+        align-items: flex-start;
+        h3 {
+          font-family: $robotoFamily;
+          color: $whiteColor;
+          font-size: 28px;
+        }
+        form {
+          text-align: left;
+          input {
+            width: 90%;
+            font-size: 24px;
+            padding: 10px;
+            outline: none;
+          }
+          textarea {
+            width: 90%;
+            font-size: 24px;
+            padding: 10px;
+            outline: none;
+            margin: 15px 0;
+          }
+          button {
+            @include bouton($redColor, $whiteColor);
+            border: none;
+          }
+        }
+      }
+    }
+  }
+  .footer__copyright {
+    height: 20%;
+    width: 100%;
+    background-color: $blackColor;
+    @include flexOne(row);
+    p {
+      color: $whiteColor;
+      font-size: 22px;
+      font-family: $robotoFamily;
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+    }
+  }
+}

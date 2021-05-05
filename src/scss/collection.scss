@@ -1,0 +1,30 @@
+@import "../App.scss";
+.collection {
+  background-color: #111111;
+  height: 20rem;
+  width: 100%;
+  @include flexOne(row);
+  padding: 20px 0;
+  .collection__container {
+    width: 70%;
+    height: 100%;
+    @include flexOne(row);
+    .collection__container__text {
+      width: 50%;
+      p {
+        @include textLook($whiteColor);
+        font-size: 30px;
+        text-align: left;
+        font-weight: bold;
+        line-height: 45px;
+        span {
+          font-size: 50px;
+        }
+      }
+    }
+    .collection__container__image {
+      color: $whiteColor;
+      width: 50%;
+    }
+  }
+}

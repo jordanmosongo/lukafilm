@@ -1,0 +1,30 @@
+@font-face {
+  font-family: Roboto;
+  src: url("../fonts/Roboto-Regular.ttf");
+}
+.banner__input {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: -80px;
+  input {
+    padding: 15px 20px;
+    font-size: 30px;
+    color: #111111;
+    font-family: Roboto;
+    width: 100%;
+    outline: none;
+  }
+  button {
+    padding: 0 30px;
+    background-color: red;
+    color: #ffffff;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    .searchIcon {
+      font-size: 50px;
+      font-weight: bolder;
+    }
+  }
+}

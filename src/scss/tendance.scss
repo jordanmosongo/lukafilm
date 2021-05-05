@@ -1,0 +1,52 @@
+@import "../App.scss";
+.tendance {
+  padding: 30px;
+  background-color: $sectionColor;
+  @include flexOne(column);
+  .tendance__titre {
+    @include title(#111111);
+  }
+  .groupButton {
+    border: 1px solid white;
+    background-color: $whiteColor;
+    margin: 20px 0;
+    @include flexOne(row);
+    a {
+      @include bouton($redColor, $whiteColor);
+    }
+    button {
+      @include bouton($whiteColor, $redColor);
+      &:hover,
+      &:active {
+        @include boutonHover($redColor, $whiteColor);
+      }
+    }
+  }
+  .movie-card-container {
+    @include flexOne(row);
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 70%;
+    .movie-card {
+      width: 24%;
+      height: 25rem;
+      border: 2px solid black;
+      margin: 8px 0;
+      .movie-card__image {
+        width: 100%;
+        height: 75%;
+        background-color: #666666;
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+  .groupPageButton {
+    margin: 20px 0;
+    button {
+      @include bouton($redColor, $whiteColor);
+      margin: 0 10px;
+    }
+  }
+}

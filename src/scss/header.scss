@@ -1,0 +1,29 @@
+@font-face {
+  font-family: Alba;
+  src: url("../fonts/Shark\ Ready.ttf");
+}
+.header {
+  height: 10vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 200;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .logo {
+    margin-left: 30px;
+    font-size: 60px;
+    font-family: Alba;
+    font-weight: bolder;
+    color: red;
+  }
+  .menu {
+    margin-right: 30px;
+    margin-left: 30px;
+    font-size: 40px;
+    font-weight: bolder;
+    color: #ffffff;
+    cursor: pointer;
+  }
+}

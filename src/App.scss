@@ -1,0 +1,58 @@
+@font-face {
+  font-family: Roboto;
+  src: url("./fonts/Roboto-Regular.ttf");
+}
+@font-face {
+  font-family: Alba;
+  src: url("./fonts/Shark\ Ready.ttf");
+}
+$sectionColor: #f1f1f1;
+$whiteColor: #ffffff;
+$redColor: rgb(207, 7, 7);
+$blackColor: #0e0e0e;
+$robotoFamily: Roboto;
+$albaFamily: Alba;
+@mixin title($color) {
+  color: $color;
+  font-size: 35px;
+  font-family: Roboto;
+  position: relative;
+  display: inline;
+  &:before {
+    position: absolute;
+    content: "";
+    height: 8px;
+    width: 26%;
+    top: 50px;
+    left: 37%;
+    background-color: $redColor;
+  }
+}
+@mixin flexOne($direction) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
+}
+@mixin bouton($bgColor, $fontColor) {
+  background-color: $bgColor;
+  color: $fontColor;
+  font-family: Roboto;
+  font-size: 30px;
+  padding: 10px 40px;
+  border-radius: none;
+  border: 1px solid $whiteColor;
+  outline: none;
+  cursor: pointer;
+}
+@mixin boutonHover($bgColor, $fontColor) {
+  background-color: $bgColor;
+  color: $fontColor;
+}
+@mixin textLook($textColor) {
+  color: $textColor;
+  font-family: Roboto;
+}
+.App {
+  text-align: center;
+}
