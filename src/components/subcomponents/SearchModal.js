@@ -7,6 +7,7 @@ import Close from "@material-ui/icons/Close";
 import "../../scss/modal.scss";
 import SearchBox from "./SearchBox";
 import { SearchSharp } from "@material-ui/icons";
+import { useState } from "react";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -25,11 +26,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 const SearchModal = (props) => {
-  let { modalState } = props;
-  const classes = useStyles();
+  let { modalState, entry } = props;
+  const [entryValue, setentryValue] = useState(entry);
 
+  const classes = useStyles();
   const closeModal = () => {
     props.closeModalFromChild();
+  };
+  const typingMethod = (event) => {
+    event.preventDefault();
+    let value = event.target.value;
+    setentryValue(value);
   };
   return (
     <div>
@@ -52,10 +59,20 @@ const SearchModal = (props) => {
               <Close className="close-modal" onClick={closeModal} />
               <h2>Zone de recherche</h2>
               <div className="banner__input">
-                <input type="text" placeholder="Tapez votre recherche" />
+                <input
+                  type="text"
+                  placeholder="Tapez votre recherche"
+                  defaultValue={entryValue}
+                  onChange={typingMethod}
+                />
                 <button>
                   <SearchSharp className="searchIcon" />
                 </button>
+              </div>
+              <div className="result">
+                <p>
+                  <span>0</span> resultats pour {`"${entryValue}"`}
+                </p>
               </div>
             </div>
           </div>

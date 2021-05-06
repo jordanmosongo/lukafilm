@@ -6,20 +6,33 @@ import { useState } from "react";
 
 const SearchBox = () => {
   const [stateOfModal, setstateOfModal] = useState(false);
+  const [typedValue, settypedValue] = useState("");
   const showModal = () => {
     setstateOfModal(!stateOfModal);
+  };
+  const textWritting = (event) => {
+    event.preventDefault();
+    let value = event.target.value;
+    if (value.length >= 3) {
+      settypedValue(value);
+      showModal();
+    }
   };
   return (
     <div className="banner__input">
       <input
         type="text"
         placeholder="Tapez votre recherche"
-        onMouseDown={showModal}
+        onChange={textWritting}
       />
       <button>
         <SearchSharp className="searchIcon" />
       </button>
-      <SearchModal modalState={stateOfModal} closeModalFromChild={showModal} />
+      <SearchModal
+        modalState={stateOfModal}
+        entry={typedValue}
+        closeModalFromChild={showModal}
+      />
     </div>
   );
 };
