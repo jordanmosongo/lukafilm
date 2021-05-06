@@ -1,17 +1,30 @@
 import React from "react";
 import "../scss/header.scss";
 import Menu from "@material-ui/icons/Menu";
+import FullPageMenu from "./FullPageMenu";
+import { useState } from "react";
+import SearchBox from "./subcomponents/SearchBox";
 
 const Header = (props) => {
-  const showMenu = (event) => {
-    event.preventDefault();
-    props.changeMenuState();
+  const [menuState, setmenuState] = useState(false);
+  const [addBackground, setaddBackground] = useState(false);
+  const [showSearch, setshowSearch] = useState(false);
+  const showOrHideMenu = () => {
+    setmenuState(!menuState);
   };
   return (
-    <div className="header">
-      <a className="logo">Lukafilm</a>
-      <Menu className="menu" onClick={showMenu} />
-    </div>
+    <>
+      <div className={addBackground ? "header add-black" : "header"}>
+        <a className="logo">Lukafilm</a>
+        {showSearch ? <SearchBox /> : ""}
+        <Menu className="menu" onClick={showOrHideMenu} />
+      </div>
+      {menuState ? (
+        <FullPageMenu changeMenuStateFromChild={showOrHideMenu} />
+      ) : (
+        ""
+      )}
+    </>
   );
 };
 

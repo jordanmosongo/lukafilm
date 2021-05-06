@@ -6,16 +6,7 @@ const Latest = () => {
   return (
     <div className="latest">
       <Title titre="Derniers films" />
-      <div className="movie-card-container">
-        <MovieCard className="first-element" />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-      </div>
+      <div className="movie-card-container"></div>
     </div>
   );
 };

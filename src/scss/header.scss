@@ -2,6 +2,9 @@
   font-family: Alba;
   src: url("../fonts/Shark\ Ready.ttf");
 }
+.add-black {
+  background-color: #111111;
+}
 .header {
   height: 10vh;
   width: 100%;
@@ -13,10 +16,35 @@
   align-items: center;
   .logo {
     margin-left: 30px;
-    font-size: 60px;
+    font-size: 45px;
     font-family: Alba;
     font-weight: bolder;
     color: red;
+  }
+  .banner__input {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    input {
+      padding: 10px 15px;
+      font-size: 20px;
+      color: #111111;
+      font-family: Roboto;
+      width: 100%;
+      outline: none;
+    }
+    button {
+      padding: 0 30px;
+      background-color: #111111;
+      color: red;
+      cursor: pointer;
+      outline: none;
+      border: none;
+      .searchIcon {
+        font-size: 25px;
+        font-weight: bolder;
+      }
+    }
   }
   .menu {
     margin-right: 30px;
@@ -25,5 +53,10 @@
     font-weight: bolder;
     color: #ffffff;
     cursor: pointer;
+    &:hover {
+      color: red;
+      transform: scale(1.2);
+      transition: 0.4s ease-in-out;
+    }
   }
 }
