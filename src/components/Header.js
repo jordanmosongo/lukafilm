@@ -5,7 +5,7 @@ import FullPageMenu from "./FullPageMenu";
 import { useState } from "react";
 import SearchBox from "./subcomponents/SearchBox";
 
-const Header = (props) => {
+const Header = () => {
   const [menuState, setmenuState] = useState(false);
   const [addBackground, setaddBackground] = useState(false);
   const [showSearch, setshowSearch] = useState(false);

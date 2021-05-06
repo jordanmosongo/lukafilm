@@ -43,6 +43,14 @@ const Tendance = () => {
           : movies.slice(0, 8).map((movie) => {
               return <MovieCard movie={movie} />;
             })}
+        {/* <MovieCard />
+        <MovieCard />
+        <MovieCard />
+        <MovieCard />
+        <MovieCard />
+        <MovieCard />
+        <MovieCard />
+        <MovieCard /> */}
       </div>
       <div className="groupPageButton">
         <button>Tous</button>
