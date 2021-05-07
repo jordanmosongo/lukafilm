@@ -10,6 +10,11 @@ const SearchBox = () => {
   const showModal = () => {
     setstateOfModal(!stateOfModal);
   };
+  const closeModal = () => {
+    settypedValue((typedValue) => (typedValue = ""));
+    setstateOfModal(!stateOfModal);
+  };
+
   const textWritting = (event) => {
     event.preventDefault();
     let value = event.target.value;
@@ -18,6 +23,7 @@ const SearchBox = () => {
       showModal();
     }
   };
+  console.log(typedValue);
   return (
     <div className="banner__input">
       <input
@@ -31,7 +37,7 @@ const SearchBox = () => {
       <SearchModal
         modalState={stateOfModal}
         entry={typedValue}
-        closeModalFromChild={showModal}
+        closeModalFromChild={closeModal}
       />
     </div>
   );

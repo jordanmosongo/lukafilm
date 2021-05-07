@@ -26,10 +26,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 const SearchModal = (props) => {
-  let { modalState, entry } = props;
-  const [entryValue, setentryValue] = useState(entry);
-
+  const { modalState } = props;
+  console.log(props.entry);
+  const [entryValue, setentryValue] = useState(props.entry);
   const classes = useStyles();
+  console.log(entryValue);
   const closeModal = () => {
     props.closeModalFromChild();
   };
@@ -38,6 +39,7 @@ const SearchModal = (props) => {
     let value = event.target.value;
     setentryValue(value);
   };
+
   return (
     <div>
       <Modal
