@@ -5,34 +5,65 @@
 .latest {
   width: 70%;
   margin: auto;
-  border: 2px solid red;
-  padding: 30px;
+  padding: 50px 0;
   background-color: $sectionColor;
   @include flexOne(column);
   align-items: flex-start;
-  .tendance__titre {
-    @include title(#111111);
+  .latest-header {
+    padding: 30px 0;
+    .tendance__titre {
+      @include title(#111111);
+    }
   }
+
   .movie-card-container {
     @include flexOne(row);
     justify-content: space-between;
-    flex-wrap: wrap;
     width: 100%;
     .movie-card-container__left {
-      width: 49% !important;
-      border: 2px solid red;
+      width: 49%;
+      text-align: left;
       .movie-card {
         width: 100%;
-        height: 40rem;
-        border: 2px solid black;
-        overflow: hidden;
+        height: 35rem;
         .movie-card__image {
           width: 100%;
-          height: 60%;
+          height: 70%;
           background-color: #666666;
+          overflow: hidden;
           img {
             width: 100%;
           }
+        }
+      }
+    }
+    .movie-card-container__right {
+      width: 49%;
+      height: 35rem;
+
+      @include flexOne(column);
+      justify-content: space-between;
+      .latest-movie-card {
+        @include flexOne(row);
+        justify-content: flex-start;
+        width: 100%;
+        height: 23%;
+
+        box-sizing: border-box;
+        .latest-movie-card__image {
+          width: 40%;
+          height: 100%;
+          box-sizing: border-box;
+          overflow: hidden;
+          img {
+            width: 100%;
+          }
+        }
+        .latest-movie-card__description {
+          width: 60%;
+          padding: 0 5px;
+          text-align: left;
+          color: #666666;
         }
       }
     }
