@@ -1,6 +1,6 @@
 import React from "react";
 const linkImage = "https://image.tmdb.org/t/p/w300";
-const LatestMovieCard = ({ movie, isLatest }) => {
+const LatestMovieCard = ({ movie }) => {
   const { poster_path, title, overview } = movie;
 
   return (
