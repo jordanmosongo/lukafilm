@@ -83,5 +83,4 @@ const SearchModal = (props) => {
     </div>
   );
 };
-
 export default SearchModal;
