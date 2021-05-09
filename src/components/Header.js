@@ -37,8 +37,11 @@ const Header = () => {
     <>
       <div className={addBackground ? "header add-black" : "header"}>
         <a className="logo">Lukafilm</a>
-        {showSearch ? <SearchBox /> : ""}
-        <Menu className="menu" onClick={showOrHideMenu} />
+        <div className="header-container">
+          {" "}
+          {showSearch ? <SearchBox /> : ""}
+          <Menu className="menu" onClick={showOrHideMenu} />
+        </div>
       </div>
       {menuState ? (
         <FullPageMenu changeMenuStateFromChild={showOrHideMenu} />
