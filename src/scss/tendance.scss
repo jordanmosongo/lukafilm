@@ -36,6 +36,7 @@
         margin: 8px 0;
         text-align: left;
         background-color: #fff;
+        position: relative;
         cursor: pointer;
         .movie-card__image {
           max-width: 100%;
@@ -65,12 +66,51 @@
           }
         }
       }
+      .movie-card__effect {
+        .movie-card__over-effect {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background-color: black;
+          opacity: 0.7;
+        }
+        .movie-card__over-content {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          z-index: 2;
+          cursor: initial;
+          @include flexOne(row);
+          button {
+            @include bouton(transparent, $whiteColor);
+            &:hover {
+              @include boutonHover($redColor, $whiteColor);
+              transform: scale(1.1);
+              transition: 0.4s ease-in-out;
+              border: 1px solid $redColor;
+            }
+          }
+        }
+      }
     }
     .groupPageButton {
       margin: 20px 0;
       button {
-        @include bouton($redColor, $whiteColor);
+        @include bouton(transparent, $redColor);
+        border: 1px solid $redColor;
+        padding-top: 4px;
+        padding-bottom: 4px;
         margin: 0 10px;
+        &:hover {
+          @include boutonHover($redColor, $whiteColor);
+          transform: scale(1.1);
+          transition: 0.4s ease-in-out;
+          border: 1px solid $redColor;
+        }
       }
     }
   }
