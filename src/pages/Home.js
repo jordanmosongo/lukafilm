@@ -2,7 +2,7 @@ import React from "react";
 import Banner from "../components/Banner";
 import Tendance from "../components/Tendance";
 import Collection from "../components/Collection";
-import Latest from "../components/Latest";
+import Videos from "../components/Videos";
 
 const Home = () => {
   return (
@@ -10,7 +10,7 @@ const Home = () => {
       <Banner />
       <Tendance />
       <Collection />
-      <Latest />
+      <Videos />
     </div>
   );
 };
