@@ -6,6 +6,7 @@ import Title from "./subcomponents/Title";
 import filmOne from "../images/filmOne.jpg";
 import { useEffect, useState } from "react";
 import Loader from "./subcomponents/Loader";
+import { ArrowBack, ArrowForward } from "@material-ui/icons";
 
 const dataMovie =
   "https://api.themoviedb.org/3/discover/movie?api_key=c802217348f2b02deda6d2bd90464776&page=2";
@@ -31,30 +32,31 @@ const Tendance = () => {
     <Loader />
   ) : (
     <div className="tendance">
-      <Title titre="Les plus populaires" />
-      <div className="groupButton">
-        <a>Tous</a>
-        <Button content="Films" />
-        <Button content="Séries" />
-      </div>
-      <div className="movie-card-container">
-        {movies.length == 0
-          ? ""
-          : movies.slice(0, 8).map((movie) => {
-              return <MovieCard movie={movie} />;
-            })}
-        {/* <MovieCard />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard />
-        <MovieCard /> */}
-      </div>
-      <div className="groupPageButton">
-        <button>Tous</button>
-        <button>Tous</button>
+      <div className="tendance__container">
+        <div className="groupButton">
+          <a>Now playing</a>
+          <Button content="Opening this week" />
+          <Button content="Coming soon" />
+        </div>
+        <div className="movie-card-container">
+          {/* {movies.length == 0
+            ? ""
+            : movies.slice(0, 4).map((movie) => {
+                return <MovieCard movie={movie} />;
+              })} */}
+          <MovieCard />
+          <MovieCard />
+          <MovieCard />
+          <MovieCard />
+        </div>
+        <div className="groupPageButton">
+          <button>
+            <ArrowBack />
+          </button>
+          <button>
+            <ArrowForward />
+          </button>
+        </div>
       </div>
     </div>
   );
