@@ -1,32 +1,38 @@
 import React from "react";
 import "../scss/collection.scss";
-import movieOne from "../images/filmFour.jpg";
-import movieTwo from "../images/filmOne.jpg";
-import movieThree from "../images/filmThree.jpg";
-import movieSecond from "../images/filmTwo.jpg";
-import Title from "./subcomponents/Title";
+import { useState, useEffect } from "react";
 
+const topMovie = ({ poster_path }) => {
+  return (
+    <div className="card-image">
+      <img src={`https://image.tmdb.org/t/p/w300${poster_path}`} />
+    </div>
+  );
+};
+const api =
+  "https://api.themoviedb.org/3/discover/movie?api_key=c802217348f2b02deda6d2bd90464776&page=100";
 const Collection = () => {
+  const [movies, setmovies] = useState([]);
+  useEffect(() => {
+    fetch(api)
+      .then((data) => {
+        return data.json();
+      })
+      .then(({ results }) => {
+        if (results) {
+          setmovies([...results]);
+        }
+      })
+      .catch((error) => console.log(error));
+  }, [api]);
   return (
     <div className="collection">
       <div className="collection__container">
         <h2>Top movies in theatres</h2>
         <div className="collection__container__image">
-          <div className="card-image">
-            <img src={movieOne} />
-          </div>
-          <div className="card-image">
-            <img src={movieTwo} />
-          </div>
-          <div className="card-image">
-            <img src={movieThree} />
-          </div>
-          <div className="card-image">
-            <img src={movieSecond} />
-          </div>
-          <div className="card-image">
-            <img src={movieOne} />
-          </div>
+          {movies.slice(0, 5).map((movie) => {
+            return topMovie(movie);
+          })}
         </div>
       </div>
     </div>

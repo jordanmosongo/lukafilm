@@ -9,7 +9,7 @@ import Loader from "./subcomponents/Loader";
 import { ArrowBack, ArrowForward } from "@material-ui/icons";
 
 const dataMovie =
-  "https://api.themoviedb.org/3/discover/movie?api_key=c802217348f2b02deda6d2bd90464776&page=20";
+  "https://api.themoviedb.org/3/discover/movie?api_key=c802217348f2b02deda6d2bd90464776&page=50";
 
 const Tendance = () => {
   const [movies, setmovies] = useState([]);

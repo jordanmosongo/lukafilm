@@ -8,14 +8,15 @@
   .collection__container {
     width: 95%;
     height: 100%;
+    padding-bottom: 20px;
     @include flexOne(column);
+    justify-content: space-around;
     h2 {
       @include title(red);
     }
     .collection__container__image {
       @include flexOne(row);
       justify-content: space-between;
-      height: 70%;
       width: 100%;
       .card-image {
         width: 19%;
