@@ -5,10 +5,13 @@ import Home from "./pages/Home";
 import Footer from "./components/Footer";
 import React from "react";
 import Nouvelles from "./pages/Nouvelles";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const MenuStateContext = React.createContext(false);
 
 function App() {
+  AOS.init({ duration: 1000 });
   return (
     <div className="App">
       <Header />

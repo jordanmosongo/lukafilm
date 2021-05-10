@@ -28,7 +28,11 @@ const Banner = () => {
       <div className="banner__blur"></div>
       <div className="banner__blur__content">
         <h1>Lukafilm</h1>
-        {changeState ? <h2>{text}</h2> : <h2>{text}</h2>}
+        {changeState ? (
+          <h2 data-aos="zoom-in">{text}</h2>
+        ) : (
+          <h2 data-aos="zoom-in">{text}</h2>
+        )}
         <SearchBox />
       </div>
     </div>
