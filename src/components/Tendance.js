@@ -9,7 +9,7 @@ import Loader from "./subcomponents/Loader";
 import { ArrowBack, ArrowForward } from "@material-ui/icons";
 
 const dataMovie =
-  "https://api.themoviedb.org/3/discover/movie?api_key=c802217348f2b02deda6d2bd90464776&page=2";
+  "https://api.themoviedb.org/3/discover/movie?api_key=c802217348f2b02deda6d2bd90464776&page=20";
 
 const Tendance = () => {
   const [movies, setmovies] = useState([]);
@@ -39,15 +39,11 @@ const Tendance = () => {
           <Button content="Coming soon" />
         </div>
         <div className="movie-card-container">
-          {/* {movies.length == 0
+          {movies.length == 0
             ? ""
             : movies.slice(0, 4).map((movie) => {
                 return <MovieCard movie={movie} />;
-              })} */}
-          <MovieCard />
-          <MovieCard />
-          <MovieCard />
-          <MovieCard />
+              })}
         </div>
         <div className="groupPageButton">
           <button>
