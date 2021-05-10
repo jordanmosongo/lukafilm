@@ -26,11 +26,7 @@ const SearchBox = () => {
   console.log(typedValue);
   return (
     <div className="banner__input">
-      <input
-        type="text"
-        placeholder="Tapez votre recherche"
-        onChange={textWritting}
-      />
+      <input type="text" placeholder="Search a movie" onChange={textWritting} />
       <button>
         <SearchSharp className="searchIcon" />
       </button>

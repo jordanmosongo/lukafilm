@@ -60,25 +60,6 @@
       @media (max-width: 540px) {
         font-size: 20px;
       }
-      &:before {
-        content: "";
-        height: 4px;
-        background-color: red;
-        width: 50%;
-        left: 25%;
-        position: absolute;
-        top: 70px;
-        animation: line-animated 3.5s ease-in-out infinite;
-        @keyframes line-animated {
-          0% {
-            width: 0%;
-            transition: 0.5s ease-in-out;
-          }
-          100% {
-            width: 50%;
-          }
-        }
-      }
     }
     .banner__input {
       display: flex;
