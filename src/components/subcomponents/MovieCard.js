@@ -3,7 +3,7 @@ import React from "react";
 import { useState } from "react";
 const linkImage = "https://image.tmdb.org/t/p/w300";
 const MovieCard = ({ movie }) => {
-  //const { poster_path, title, isLatest, overview } = movie;
+  const { poster_path, title, isLatest, overview } = movie;
   const [detail, setdetail] = useState(false);
   const showDetail = (event) => {
     event.preventDefault();
