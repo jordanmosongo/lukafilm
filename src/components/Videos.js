@@ -29,7 +29,7 @@ const Videos = () => {
             <div className="latest-header">
               <Title titre="Videos and photos" />
             </div>
-            <MovieCard movie={movies[18]} isLatest={true} />
+            {/* <MovieCard movie={movies[18]} isLatest={true} /> */}
           </div>
           <div className="movie-card-container__right">
             <div className="photo"></div>
