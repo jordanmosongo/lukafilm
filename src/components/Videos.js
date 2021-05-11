@@ -3,7 +3,24 @@ import Title from "./subcomponents/Title";
 import "../scss/latest.scss";
 import MovieCard from "./subcomponents/MovieCard";
 import LatestMovieCard from "./subcomponents/LatestMovieCard";
+import { useState, useEffect } from "react";
+
 const Videos = () => {
+  const api =
+    "https://api.themoviedb.org/3/discover/movie?api_key=c802217348f2b02deda6d2bd90464776&page=80";
+  const [movies, setmovies] = useState([]);
+  useEffect(() => {
+    fetch(api)
+      .then((data) => {
+        return data.json();
+      })
+      .then(({ results }) => {
+        if (results) {
+          setmovies([...results]);
+        }
+      })
+      .catch((error) => console.log(error));
+  }, [api]);
   return (
     <div className="latest-container">
       <div className="latest">
@@ -12,15 +29,7 @@ const Videos = () => {
             <div className="latest-header">
               <Title titre="Videos and photos" />
             </div>
-            <MovieCard
-              movie={{
-                poster_path: "/pwDvkDyaHEU9V7cApQhbcSJMG1w.jpg",
-                title: "super titre",
-                overview:
-                  "Cherry drifts from college dropout to army medic in Iraq - anchored only by his true love, Emily. But after returning from the war with PTSD, his life spirals into drugs and crime as he struggles to find his place in the world.",
-              }}
-              isLatest={true}
-            />
+            <MovieCard movie={movies[18]} isLatest={true} />
           </div>
           <div className="movie-card-container__right">
             <div className="photo"></div>

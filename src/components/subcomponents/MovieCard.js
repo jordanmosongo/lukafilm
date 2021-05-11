@@ -3,7 +3,7 @@ import React from "react";
 import { useState } from "react";
 const linkImage = "https://image.tmdb.org/t/p/w300";
 const MovieCard = ({ movie }) => {
-  const { poster_path, title, isLatest, overview } = movie;
+  // const { poster_path, title, isLatest, overview } = movie;
   const [detail, setdetail] = useState(false);
   const showDetail = (event) => {
     event.preventDefault();
@@ -36,14 +36,14 @@ const MovieCard = ({ movie }) => {
       onMouseLeave={hideDetail}
     >
       <div className="movie-card__image">
-        <img src={linkImage + poster_path} />
+        {/* <img src={linkImage + poster_path} /> */}
       </div>
-      <div className="movie-card__description">
+      {/* <div className="movie-card__description">
         <span>{isLatest ? "Titre" : ""}</span>
         <h3>{title}</h3>
         <span>{isLatest ? "Description" : ""}</span>
         <p>{isLatest ? overview : ""}</p>
-      </div>
+      </div> */}
       <div className="movie-card__detail">
         <Visibility className="visibility" />
         <span>490</span>
