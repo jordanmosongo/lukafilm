@@ -39,11 +39,11 @@ const Tendance = () => {
           <Button content="Coming soon" />
         </div>
         <div className="movie-card-container">
-          {/* {movies.length == 0
+          {movies.length == 0
             ? ""
-            : movies.slice(0, 4).map((movie) => {
+            : movies.slice(8, 16).map((movie) => {
                 return <MovieCard movie={movie} />;
-              })} */}
+              })}
         </div>
         <div className="groupPageButton">
           <button>
