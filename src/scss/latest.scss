@@ -63,8 +63,9 @@
       flex-wrap: wrap;
       .photo {
         width: 33%;
-        height: 33%;
-        background-color: red;
+        img {
+          width: 100%;
+        }
       }
     }
   }

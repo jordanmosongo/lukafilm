@@ -1,14 +1,25 @@
 import React from "react";
 import Title from "./subcomponents/Title";
-import "../scss/latest.scss";
 import MovieCard from "./subcomponents/MovieCard";
 import LatestMovieCard from "./subcomponents/LatestMovieCard";
 import { useState, useEffect } from "react";
+import "../scss/latest.scss";
+
+const Photo = ({ poster_path }) => {
+  return (
+    <div className="photo">
+      <img src={`https://image.tmdb.org/t/p/w300${poster_path}`} />
+    </div>
+  );
+};
 
 const Videos = () => {
   const api =
     "https://api.themoviedb.org/3/discover/movie?api_key=c802217348f2b02deda6d2bd90464776&page=80";
+  const photoApi =
+    "https://api.themoviedb.org/3/person/popular?api_key=c802217348f2b02deda6d2bd90464776&language=en-US&page=1";
   const [movies, setmovies] = useState([]);
+  const [photos, setphotos] = useState([]);
   useEffect(() => {
     fetch(api)
       .then((data) => {
@@ -21,6 +32,19 @@ const Videos = () => {
       })
       .catch((error) => console.log(error));
   }, [api]);
+  useEffect(() => {
+    fetch(photoApi)
+      .then((data) => {
+        return data.json();
+      })
+      .then(({ results }) => {
+        const photos = results.map((element) => {
+          return element.profile_path;
+        });
+        setphotos([...photos]);
+      })
+      .catch((err) => console.log(err));
+  }, [photoApi]);
   return (
     <div className="latest-container">
       <div className="latest">
@@ -29,18 +53,12 @@ const Videos = () => {
             <div className="latest-header">
               <Title titre="Videos and photos" />
             </div>
-            {/* <MovieCard movie={movies[18]} isLatest={true} /> */}
+            {/* <MovieCard movie={movies[0]} isLatest={false} /> */}
           </div>
           <div className="movie-card-container__right">
-            <div className="photo"></div>
-            <div className="photo"></div>
-            <div className="photo"></div>
-            <div className="photo"></div>
-            <div className="photo"></div>
-            <div className="photo"></div>
-            <div className="photo"></div>
-            <div className="photo"></div>
-            <div className="photo"></div>
+            {photos.slice(0, 6).map((photo) => {
+              return <Photo poster_path={photo} />;
+            })}
           </div>
         </div>
       </div>

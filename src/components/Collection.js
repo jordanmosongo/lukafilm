@@ -10,7 +10,7 @@ const topMovie = ({ poster_path }) => {
   );
 };
 const api =
-  "https://api.themoviedb.org/3/discover/movie?api_key=c802217348f2b02deda6d2bd90464776&page=100";
+  "https://api.themoviedb.org/3/discover/movie?api_key=c802217348f2b02deda6d2bd90464776&page=2";
 const Collection = () => {
   const [movies, setmovies] = useState([]);
   useEffect(() => {
@@ -30,7 +30,7 @@ const Collection = () => {
       <div className="collection__container">
         <h2>Top movies in theatres</h2>
         <div className="collection__container__image">
-          {movies.slice(0, 5).map((movie) => {
+          {movies.slice(5, 10).map((movie) => {
             return topMovie(movie);
           })}
         </div>
