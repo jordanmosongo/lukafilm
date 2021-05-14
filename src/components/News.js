@@ -1,6 +1,32 @@
 import React from "react";
+import { useEffect, useState } from "react";
 
+const Card = ({ image, title }) => {
+  return (
+    <div className="news__movie">
+      <div className="news__movie__image">
+        <img src={`https://image.tmdb.org/t/p/w300${image}`} />
+      </div>
+      <div className="news__movie__text">
+        <p>{title}</p>
+      </div>
+    </div>
+  );
+};
+const api =
+  "https://api.themoviedb.org/3/discover/movie?api_key=c802217348f2b02deda6d2bd90464776&page=50";
 const News = () => {
+  const [movies, setmovies] = useState([]);
+  useEffect(() => {
+    fetch(api)
+      .then((res) => {
+        return res.json();
+      })
+      .then(({ results }) => {
+        console.log(results);
+        setmovies([...results]);
+      });
+  }, [api]);
   return (
     <div className="news">
       <div className="news__container">
@@ -9,80 +35,19 @@ const News = () => {
         </div>
         <div className="news__content">
           <div className="news__content__left">
-            <div className="news__movie">
-              <div className="news__movie__image"></div>
-              <div className="news__movie__text">
-                <p>
-                  Du text pour la partie en fait du texte pour l'news__image
-                  C'est que du texte pour l'image. Rien que du texte pour
-                  l'image
-                </p>
-              </div>
-            </div>
-            <div className="news__movie">
-              <div className="news__movie__image"></div>
-              <div className="news__movie__text">
-                <p>
-                  Du text pour la partie en fait du texte pour l'news__image
-                  C'est que du texte pour l'image. Rien que du texte pour
-                  l'image
-                </p>
-              </div>
-            </div>
-            <div className="news__movie">
-              <div className="news__movie__image"></div>
-              <div className="news__movie__text">
-                <p>
-                  Du text pour la partie en fait du texte pour l'news__image
-                  C'est que du texte pour l'image. Rien que du texte pour
-                  l'image
-                </p>
-              </div>
-            </div>
+            {movies.slice(0, 3).map((movie) => {
+              return <Card title={movie.title} image={movie.backdrop_path} />;
+            })}
           </div>
           <div className="news__content__middle">
-            <div className="news__movie">
-              <div className="news__movie__image"></div>
-              <div className="news__movie__text">
-                <p>
-                  Du text pour la partie en fait du texte pour l'news__image
-                  C'est que du texte pour l'image. Rien que du texte pour
-                  l'image
-                </p>
-              </div>
-            </div>
+            {movies.slice(10, 11).map((movie) => {
+              return <Card title={movie.title} image={movie.backdrop_path} />;
+            })}
           </div>
           <div className="news__content__right">
-            <div className="news__movie">
-              <div className="news__movie__image"></div>
-              <div className="news__movie__text">
-                <p>
-                  Du text pour la partie en fait du texte pour l'news__image
-                  C'est que du texte pour l'image. Rien que du texte pour
-                  l'image
-                </p>
-              </div>
-            </div>
-            <div className="news__movie">
-              <div className="news__movie__image"></div>
-              <div className="news__movie__text">
-                <p>
-                  Du text pour la partie en fait du texte pour l'news__image
-                  C'est que du texte pour l'image. Rien que du texte pour
-                  l'image
-                </p>
-              </div>
-            </div>
-            <div className="news__movie">
-              <div className="news__movie__image"></div>
-              <div className="news__movie__text">
-                <p>
-                  Du text pour la partie en fait du texte pour l'news__image
-                  C'est que du texte pour l'image. Rien que du texte pour
-                  l'image
-                </p>
-              </div>
-            </div>
+            {movies.slice(3, 6).map((movie) => {
+              return <Card title={movie.title} image={movie.backdrop_path} />;
+            })}
           </div>
         </div>
       </div>
