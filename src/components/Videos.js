@@ -53,7 +53,9 @@ const Videos = () => {
             <div className="latest-header">
               <Title titre="Videos and photos" />
             </div>
-            {/* <MovieCard movie={movies[0]} isLatest={false} /> */}
+            {movies.slice(18, 19).map((movie) => {
+              return <MovieCard movie={movie} isLatest={false} />;
+            })}
           </div>
           <div className="movie-card-container__right">
             {photos.slice(0, 6).map((photo) => {
