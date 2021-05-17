@@ -2,13 +2,71 @@
 .tendance {
   @include flexOne(row);
   padding: 30px 0;
-  background-color: $sectionColor;
+  padding: 50px 0;
+  // background-color: $newColor;
+  background: linear-gradient($sectionColor, 30%, #111);
   .tendance__container {
-    width: 80%;
+    width: 90%;
+    padding: 20px 0;
     @include flexOne(column);
-    .tendance__titre {
-      @include title(#111111);
+    align-items: flex-start;
+    .tendance__container__titre {
+      @include flexOne(row);
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 50px;
+
+      position: relative;
+      .tendance__titre {
+        @include title(#fff);
+      }
+      button {
+        width: 300px;
+        text-align: left;
+        background-color: transparent;
+        font-size: 30px;
+        color: $blueColor;
+        outline: none;
+        appearance: none;
+        border: none;
+        padding-left: 20px;
+        span {
+          cursor: pointer;
+        }
+      }
+      .select-categorie {
+        width: 300px;
+        height: 100px;
+        position: absolute;
+        right: 0;
+        background-color: #13202b;
+        top: 60px;
+        @include flexOne(column);
+        align-items: flex-start;
+        padding: 0;
+        z-index: 4;
+        li {
+          box-sizing: border-box;
+          margin-left: 0;
+          font-family: $robotoFamily;
+          font-size: 28px;
+          color: #fff;
+          list-style: none;
+          left: 0;
+          width: 100%;
+          height: 50%;
+          padding-left: 20px;
+          cursor: pointer;
+          @include flexOne(row);
+          justify-content: flex-start;
+          &.activee,
+          &:hover {
+            background-color: $blueColor;
+          }
+        }
+      }
     }
+
     .groupButton {
       border: 1px solid white;
       background-color: $whiteColor;
@@ -31,36 +89,43 @@
       flex-wrap: wrap;
       width: 100%;
       .movie-card {
-        width: 24%;
-        margin: 8px 0;
+        width: 19%;
+        height: 35rem;
+        margin: 10px 0;
         text-align: left;
         background-color: #fff;
         position: relative;
-        z-index: 4;
         cursor: pointer;
         .movie-card__image {
           max-width: 100%;
-          height: 70%;
+          height: 83%;
           img {
             width: 100%;
+            height: 100%;
           }
         }
         .movie-card__description {
           padding: 0 10px;
-        }
-        .movie-card__detail {
-          padding: 0 10px;
-          @include flexOne(row);
-          justify-content: flex-start;
-          .visibility,
-          .favorite {
-            color: $redColor;
-          }
-          .favorite {
-            margin-left: 20px;
-          }
-          span {
-            padding: 0 5px;
+          height: 17%;
+          @include flexOne(column);
+          justify-content: center;
+          align-items: flex-start;
+
+          .movie-card__detail {
+            margin: 0;
+
+            @include flexOne(row);
+            justify-content: flex-start;
+            .visibility,
+            .favorite {
+              color: $redColor;
+            }
+            .favorite {
+              margin-left: 20px;
+            }
+            span {
+              padding: 0 5px;
+            }
           }
         }
       }
@@ -71,8 +136,8 @@
           bottom: 0;
           left: 0;
           right: 0;
-          background-color: black;
-          opacity: 0.7;
+          background-color: $sectionColor;
+          opacity: 0.9;
         }
         .movie-card__over-content {
           position: absolute;
@@ -82,14 +147,16 @@
           right: 0;
           z-index: 2;
           cursor: initial;
-          @include flexOne(row);
+          @include flexOne(column);
           button {
-            @include bouton(transparent, $whiteColor);
+            margin-bottom: 10px;
+            border: 1px solid $blueColor;
+            @include bouton(transparent, $blueColor);
             &:hover {
-              @include boutonHover($redColor, $whiteColor);
+              @include boutonHover($blueColor, $whiteColor);
               transform: scale(1.1);
               transition: 0.4s ease-in-out;
-              border: 1px solid $redColor;
+              border: 1px solid $blueColor;
             }
           }
         }
@@ -97,19 +164,24 @@
     }
     .groupPageButton {
       margin: 20px 0;
+      div {
+        color: $blueColor;
+      }
       button {
-        @include bouton(transparent, $redColor);
-        border: 1px solid $redColor;
+        @include bouton(transparent, $blueColor);
+        border: 1px solid $blueColor;
         padding-top: 4px;
         padding-bottom: 4px;
         margin: 0 10px;
         &:hover {
-          @include boutonHover($redColor, $whiteColor);
+          @include boutonHover($blueColor, $whiteColor);
           transform: scale(1.1);
           transition: 0.4s ease-in-out;
-          border: 1px solid $redColor;
+          border: 1px solid $blueColor;
         }
       }
+      margin: auto;
+      padding: 20px;
     }
   }
 }

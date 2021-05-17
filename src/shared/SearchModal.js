@@ -4,7 +4,7 @@ import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import Close from "@material-ui/icons/Close";
-import "../../scss/modal.scss";
+import "../scss/modal.scss";
 import SearchBox from "./SearchBox";
 import { SearchSharp } from "@material-ui/icons";
 import { useState } from "react";
@@ -26,18 +26,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 const SearchModal = (props) => {
-  const { modalState } = props;
-  console.log(props.entry);
-  const [entryValue, setentryValue] = useState(props.entry);
-  const classes = useStyles();
-  console.log(entryValue);
+  const { modalState, entry, closeModalFromChild } = props;
+  const [entryValue, setEntryValue] = useState(entry);
+  const modalClassName = useStyles();
   const closeModal = () => {
-    props.closeModalFromChild();
+    closeModalFromChild();
   };
-  const typingMethod = (event) => {
-    event.preventDefault();
-    let value = event.target.value;
-    setentryValue(value);
+  const handleSearch = (event) => {
+    const value = event.target.value;
+    setEntryValue(value);
   };
 
   return (
@@ -45,7 +42,7 @@ const SearchModal = (props) => {
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
-        className={classes.modal}
+        className={modalClassName.modal}
         open={modalState}
         closeAfterTransition
         BackdropComponent={Backdrop}
@@ -54,7 +51,7 @@ const SearchModal = (props) => {
         }}
       >
         <Fade in={modalState}>
-          <div className={classes.paper}>
+          <div className={modalClassName.paper}>
             <div className="back-image"></div>
             <div className="image-blur"></div>
             <div className="content">
@@ -65,7 +62,7 @@ const SearchModal = (props) => {
                   type="text"
                   placeholder="Tapez votre recherche"
                   defaultValue={entryValue}
-                  onChange={typingMethod}
+                  onChange={handleSearch}
                 />
                 <button>
                   <SearchSharp className="searchIcon" />

@@ -1,3 +1,4 @@
+@import "../App.scss";
 @font-face {
   font-family: Womby;
   src: url("../fonts/Womby-Regular.ttf");
@@ -18,7 +19,8 @@
     right: 0;
     left: 0;
     bottom: 0;
-    background-color: #111111;
+    //background-color: #111111;
+    background: linear-gradient(#111, 70%, $sectionColor);
     opacity: 0.9;
     display: flex;
   }

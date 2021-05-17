@@ -1,6 +1,6 @@
 import React from "react";
-import MovieCard from "../components/subcomponents/MovieCard";
-import Title from "../components/subcomponents/Title";
+import MovieCard from "../shared/MovieCard";
+import Title from "../shared/Title";
 import "../scss/nouvelles.scss";
 
 const Nouvelles = () => {

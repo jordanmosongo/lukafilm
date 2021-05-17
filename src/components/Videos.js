@@ -1,7 +1,7 @@
 import React from "react";
-import Title from "./subcomponents/Title";
-import MovieCard from "./subcomponents/MovieCard";
-import LatestMovieCard from "./subcomponents/LatestMovieCard";
+import Title from "../shared/Title";
+import MovieCard from "../shared/MovieCard";
+import LatestMovieCard from "../shared/LatestMovieCard";
 import { useState, useEffect } from "react";
 import "../scss/latest.scss";
 
@@ -16,7 +16,7 @@ const Photo = ({ poster_path }) => {
 const Videos = () => {
   const api =
     "https://api.themoviedb.org/3/discover/movie?api_key=c802217348f2b02deda6d2bd90464776&page=80";
-  const photoApi =
+  const photoUrl =
     "https://api.themoviedb.org/3/person/popular?api_key=c802217348f2b02deda6d2bd90464776&language=en-US&page=1";
   const [movies, setmovies] = useState([]);
   const [photos, setphotos] = useState([]);
@@ -33,7 +33,7 @@ const Videos = () => {
       .catch((error) => console.log(error));
   }, [api]);
   useEffect(() => {
-    fetch(photoApi)
+    fetch(photoUrl)
       .then((data) => {
         return data.json();
       })
@@ -44,7 +44,7 @@ const Videos = () => {
         setphotos([...photos]);
       })
       .catch((err) => console.log(err));
-  }, [photoApi]);
+  }, [photoUrl]);
   return (
     <div className="latest-container">
       <div className="latest">

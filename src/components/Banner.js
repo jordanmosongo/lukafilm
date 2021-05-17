@@ -1,6 +1,6 @@
 import React from "react";
 import "../scss/banner.scss";
-import SearchBox from "./subcomponents/SearchBox";
+import SearchBox from "../shared/SearchBox";
 import { useState, useEffect } from "react";
 
 const Banner = () => {

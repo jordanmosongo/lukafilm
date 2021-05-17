@@ -39,24 +39,26 @@ const MovieCard = ({ movie }) => {
         <img src={linkImage + poster_path} />
       </div>
       <div className="movie-card__description">
-        <span>{isLatest ? "Titre" : ""}</span>
+        {/* <span>{isLatest ? "Titre" : ""}</span> */}
         <h3>{title}</h3>
-        <span>{isLatest ? "Description" : ""}</span>
-        <p>{isLatest ? overview : ""}</p>
+        {/* <span>{isLatest ? "Description" : ""}</span>
+        <p>{isLatest ? overview : ""}</p> */}
+        <div className="movie-card__detail">
+          <Visibility className="visibility" />
+          <span>490</span>
+          <Favorite className="favorite" />
+          <span>250</span>
+        </div>
       </div>
-      <div className="movie-card__detail">
-        <Visibility className="visibility" />
-        <span>490</span>
-        <Favorite className="favorite" />
-        <span>250</span>
-      </div>
+
       {!detail ? (
         ""
       ) : (
         <>
           <div className="movie-card__over-effect"></div>
           <div className="movie-card__over-content">
-            <button>View detail</button>
+            <button data-aos="fade-left">View detail</button>
+            <button data-aos="fade-right">View detail</button>
           </div>
         </>
       )}

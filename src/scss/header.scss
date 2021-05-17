@@ -1,9 +1,10 @@
+@import "../App.scss";
 @font-face {
   font-family: Alba;
   src: url("../fonts/Shark\ Ready.ttf");
 }
 .add-black {
-  background-color: #111111;
+  background-color: $sectionColor;
 }
 .header {
   height: 10vh;

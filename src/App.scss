@@ -6,12 +6,14 @@
   font-family: Alba;
   src: url("./fonts/Shark\ Ready.ttf");
 }
-$sectionColor: #f1f1f1;
+$sectionColor: #0b131b;
 $whiteColor: #ffffff;
 $redColor: rgb(207, 7, 7);
 $blackColor: #0e0e0e;
 $robotoFamily: Roboto;
 $albaFamily: Alba;
+$newColor: #0b131b;
+$blueColor: #1987f3;
 @mixin title($color) {
   color: $color;
   font-size: 35px;
@@ -21,11 +23,21 @@ $albaFamily: Alba;
   &:before {
     position: absolute;
     content: "";
-    height: 8px;
-    width: 26%;
+    height: 4px;
+    width: 100%;
     top: 50px;
-    left: 37%;
-    background-color: $redColor;
+    left: 0;
+    background: linear-gradient(75deg, $sectionColor, $blueColor);
+  }
+  &:after {
+    position: absolute;
+    content: "";
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    top: 52px;
+    right: 0;
+    background-color: $blueColor;
   }
 }
 @mixin flexOne($direction) {
@@ -38,8 +50,8 @@ $albaFamily: Alba;
   background-color: $bgColor;
   color: $fontColor;
   font-family: Roboto;
-  font-size: 24px;
-  padding: 10px 25px;
+  font-size: 20px;
+  padding: 10px 20px;
   border-radius: none;
   border: 1px solid $whiteColor;
   outline: none;

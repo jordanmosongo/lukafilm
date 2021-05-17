@@ -1,19 +1,29 @@
 import React from "react";
 import "../scss/tendance.scss";
-import Button from "./subcomponents/Button";
-import MovieCard from "./subcomponents/MovieCard";
-import Title from "./subcomponents/Title";
-import filmOne from "../images/filmOne.jpg";
+import { makeStyles } from "@material-ui/core/styles";
+import Pagination from "@material-ui/lab/Pagination";
+import MovieCard from "../shared/MovieCard";
+import Title from "../shared/Title";
 import { useEffect, useState } from "react";
-import Loader from "./subcomponents/Loader";
-import { ArrowBack, ArrowForward } from "@material-ui/icons";
+import Loader from "../shared/Loader";
+import { ExpandLess, ExpandMore } from "@material-ui/icons";
 
-const dataMovie =
-  "https://api.themoviedb.org/3/discover/movie?api_key=c802217348f2b02deda6d2bd90464776&page=50";
+const useStyles = makeStyles((theme) => ({
+  root: {
+    "& > *": {
+      marginTop: theme.spacing(2),
+    },
+  },
+}));
 
 const Tendance = () => {
+  const classes = useStyles();
   const [movies, setmovies] = useState([]);
   const [loading, setloading] = useState(false);
+  const [isQueryToggleSelected, setIsQueryToggleSelected] = useState(false);
+  const [isItemToggleSelected, setIsItemToggleSelected] = useState(false);
+  const [topic, setTopic] = useState("movie");
+  const dataMovie = `https://api.themoviedb.org/3/discover/${topic}?api_key=c802217348f2b02deda6d2bd90464776&page=2`;
   useEffect(() => {
     fetch(dataMovie)
       .then((data) => {
@@ -27,31 +37,61 @@ const Tendance = () => {
       })
       .catch((error) => console.log(error));
   }, [dataMovie]);
+  const handleQuerySelectToggle = () => {
+    setIsQueryToggleSelected(!isQueryToggleSelected);
+  };
+
+  const handleClickFilmSelect = () => {
+    setIsItemToggleSelected(false);
+    setIsQueryToggleSelected(!isQueryToggleSelected);
+    setTopic("movie");
+  };
+  const handleClickSerialSelect = () => {
+    setIsItemToggleSelected(true);
+    setIsQueryToggleSelected(!isQueryToggleSelected);
+    setTopic("tv");
+  };
 
   return loading ? (
     <Loader />
   ) : (
     <div className="tendance">
       <div className="tendance__container">
-        <div className="groupButton">
-          <a>Now playing</a>
-          <Button content="Opening this week" />
-          <Button content="Coming soon" />
+        <div className="tendance__container__titre">
+          <Title
+            titre={
+              isItemToggleSelected ? "Séries populaires" : "Films populaires"
+            }
+          />
+          <button onClick={handleQuerySelectToggle}>
+            <span>
+              {isItemToggleSelected ? "Séries" : "Films"}
+              {isQueryToggleSelected ? <ExpandLess /> : <ExpandMore />}
+            </span>
+          </button>
+          {isQueryToggleSelected ? (
+            <ul className="select-categorie" data-aos="zoom-in">
+              <li className="active" onClick={handleClickFilmSelect}>
+                Films
+              </li>
+              <li onClick={handleClickSerialSelect}>Séries</li>
+            </ul>
+          ) : (
+            ""
+          )}
         </div>
+
         <div className="movie-card-container">
           {movies.length == 0
             ? ""
-            : movies.slice(8, 16).map((movie) => {
+            : movies.map((movie) => {
                 return <MovieCard movie={movie} />;
               })}
         </div>
         <div className="groupPageButton">
-          <button>
-            <ArrowBack />
-          </button>
-          <button>
-            <ArrowForward />
-          </button>
+          <div className={classes.root}>
+            <Pagination count={500} variant="outlined" shape="rounded" />
+          </div>
         </div>
       </div>
     </div>

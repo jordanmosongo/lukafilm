@@ -1,38 +1,37 @@
 import React from "react";
-import InputBanner from "../InputBanner";
+import InputBanner from "../components/InputBanner";
 import SearchSharp from "@material-ui/icons/SearchSharp";
 import SearchModal from "./SearchModal";
 import { useState } from "react";
 
 const SearchBox = () => {
-  const [stateOfModal, setstateOfModal] = useState(false);
-  const [typedValue, settypedValue] = useState("");
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [userQuery, setUserQuery] = useState("");
   const showModal = () => {
-    setstateOfModal(!stateOfModal);
+    setIsModalVisible(!isModalVisible);
   };
   const closeModal = () => {
-    settypedValue((typedValue) => (typedValue = ""));
-    setstateOfModal(!stateOfModal);
+    setUserQuery((userQuery) => (userQuery = ""));
+    setIsModalVisible(!isModalVisible);
   };
 
-  const textWritting = (event) => {
-    event.preventDefault();
+  const handleSearch = (event) => {
+    //event.preventDefault();
     let value = event.target.value;
     if (value.length >= 3) {
-      settypedValue(value);
+      setUserQuery(value);
       showModal();
     }
   };
-  console.log(typedValue);
   return (
     <div className="banner__input">
-      <input type="text" placeholder="Search a movie" onChange={textWritting} />
+      <input type="text" placeholder="Search a movie" onChange={handleSearch} />
       <button>
         <SearchSharp className="searchIcon" />
       </button>
       <SearchModal
-        modalState={stateOfModal}
-        entry={typedValue}
+        modalState={isModalVisible}
+        entry={userQuery}
         closeModalFromChild={closeModal}
       />
     </div>

@@ -3,7 +3,7 @@ import "../scss/header.scss";
 import Menu from "@material-ui/icons/Menu";
 import FullPageMenu from "./FullPageMenu";
 import { useState } from "react";
-import SearchBox from "./subcomponents/SearchBox";
+import SearchBox from "../shared/SearchBox";
 
 const Header = () => {
   const [menuState, setmenuState] = useState(false);
