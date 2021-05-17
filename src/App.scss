@@ -68,3 +68,19 @@ $blueColor: #1987f3;
 .App {
   text-align: center;
 }
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: $sectionColor;
+}
+::-webkit-scrollbar-thumb {
+  background: $blueColor;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-button {
+  display: none;
+}
+::-webkit-scrollbar-corner {
+  display: none;
+}

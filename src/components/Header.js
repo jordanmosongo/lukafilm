@@ -36,10 +36,12 @@ const Header = () => {
   return (
     <>
       <div className={addBackground ? "header add-black" : "header"}>
-        <a className="logo">Lukafilm</a>
+        <a className="logo">
+          Luka<span>film</span>{" "}
+        </a>
         <div className="header-container">
           {" "}
-          {showSearch ? <SearchBox /> : ""}
+          <SearchBox />
           <Menu className="menu" onClick={showOrHideMenu} />
         </div>
       </div>

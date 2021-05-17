@@ -1,5 +1,6 @@
+@import "../App.scss";
 .banner__menu {
-  background-color: #111111;
+  background-color: $sectionColor;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -12,21 +13,21 @@
 
   .close {
     color: white;
-    font-size: 50px;
+    font-size: 30px;
     font-weight: bolder;
     position: absolute;
     top: 20px;
     right: 20px;
     cursor: pointer;
     &:hover {
-      color: red;
-      transform: scale(1.2);
+      color: $blueColor;
+      transform: scale(1.1);
       transition: 0.4s ease-in-out;
     }
   }
   .banner__menu__items {
     z-index: 10001;
-    color: white;
+
     padding: 0;
     li {
       list-style: none;
@@ -35,11 +36,12 @@
         font-family: Roboto;
         display: block;
         padding: 20px 0;
+        color: $blueColor;
         cursor: pointer;
         &:hover {
-          background-color: red;
-          transform: scale(1.1);
+          background-color: $blueColor;
           transition: 0.5s ease-in-out;
+          color: white;
         }
       }
     }

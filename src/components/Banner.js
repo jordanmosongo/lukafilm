@@ -5,8 +5,8 @@ import { useState, useEffect } from "react";
 
 const Banner = () => {
   const arrayOfText = [
-    "Discover various and unlimited movies",
-    "Enjoy a professional touch",
+    "pour une recherche optimale des films et séries",
+    "retrouvez toutes les informations y relatives",
   ];
   const [text, settext] = useState(arrayOfText[0]);
   const [changeState, setchangeState] = useState(false);
@@ -27,13 +27,10 @@ const Banner = () => {
     <div className="banner">
       <div className="banner__blur"></div>
       <div className="banner__blur__content">
-        <h1>Lukafilm</h1>
-        {changeState ? (
-          <h2 data-aos="zoom-in">{text}</h2>
-        ) : (
-          <h2 data-aos="zoom-in">{text}</h2>
-        )}
-        <SearchBox />
+        <h1>
+          Luka<span>film</span>
+        </h1>
+        <p>{text}</p>
       </div>
     </div>
   );

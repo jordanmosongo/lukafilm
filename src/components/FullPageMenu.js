@@ -13,10 +13,9 @@ const FullPageMenu = (props) => {
       <Close className="close" onClick={changeMenuState} />
       <ul className="banner__menu__items">
         <MenuLink contentText="Acceuil" />
-        <MenuLink contentText="Les plus regardes" />
-        <MenuLink contentText="Derniers films" />
-        <MenuLink contentText="Dernieres series" />
-        <MenuLink contentText="Nouvelles" />
+        <MenuLink contentText="Films" />
+        <MenuLink contentText="Séries" />
+        <MenuLink contentText="Acteurs" />
       </ul>
     </div>
   );

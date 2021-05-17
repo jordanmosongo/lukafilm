@@ -15,10 +15,9 @@ const MovieCard = ({ movie }) => {
       parent.classList.contains("movie-card__detail")
     ) {
       parent.parentNode.classList.add("movie-card__effect");
-      console.log(parent.parentNode);
     } else {
       strigger.parentNode.classList.add("movie-card__effect");
-      console.log(strigger.parentNode);
+
       if (strigger.parentNode.classList.contains("movie-card")) setdetail(true);
     }
   };

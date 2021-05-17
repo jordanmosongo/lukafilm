@@ -19,9 +19,9 @@
     right: 0;
     left: 0;
     bottom: 0;
-    //background-color: #111111;
-    background: linear-gradient(#111, 70%, $sectionColor);
-    opacity: 0.9;
+    background-color: $sectionColor;
+    //background: linear-gradient(#111, 30%, $sectionColor);
+    opacity: 0.96;
     display: flex;
   }
   .banner__blur__content {
@@ -41,7 +41,10 @@
       bottom: -50px;
       font-family: Womby;
       line-height: 100px;
-      text-transform: lowercase;
+      text-transform: uppercase;
+      span {
+        color: $blueColor;
+      }
       @media (max-width: 768px) {
         font-size: 70px;
       }
@@ -49,7 +52,7 @@
         font-size: 45px;
       }
     }
-    h2 {
+    p {
       color: #ffffff;
       position: relative;
       top: -80px;
@@ -61,32 +64,6 @@
       }
       @media (max-width: 540px) {
         font-size: 20px;
-      }
-    }
-    .banner__input {
-      display: flex;
-      justify-content: center;
-      position: relative;
-      top: -80px;
-      input {
-        padding: 15px 20px;
-        font-size: 30px;
-        color: #111111;
-        font-family: Roboto;
-        width: 100%;
-        outline: none;
-      }
-      button {
-        padding: 0 30px;
-        background-color: red;
-        color: #ffffff;
-        cursor: pointer;
-        outline: none;
-        border: none;
-        .searchIcon {
-          font-size: 50px;
-          font-weight: bolder;
-        }
       }
     }
   }

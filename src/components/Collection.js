@@ -35,6 +35,7 @@ let settings = {
   slidesToShow: 4,
   slidesToScroll: 1,
   cssEase: "linear",
+  autoplay: true,
 };
 const api =
   "https://api.themoviedb.org/3/discover/movie?api_key=c802217348f2b02deda6d2bd90464776&page=1";
@@ -71,9 +72,6 @@ const Collection = () => {
       <div className="collection__container">
         <h2>Tendance du moment</h2>
         <div className="collection__container__image">
-          {/* {tendances.slice(0, 4).map((tendance) => {
-            return topMovie(tendance);
-          })} */}
           <Slider {...settings}>
             {movies.map((movie) => {
               return <CardSlick movie={movie} />;

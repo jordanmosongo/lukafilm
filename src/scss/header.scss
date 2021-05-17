@@ -20,7 +20,10 @@
     font-size: 45px;
     font-family: Alba;
     font-weight: bolder;
-    color: red;
+    color: #fff;
+    span {
+      color: $blueColor;
+    }
   }
   .header-container {
     display: flex;
@@ -32,15 +35,16 @@
     input {
       padding: 10px 15px;
       font-size: 20px;
-      color: #111111;
+      color: $sectionColor;
       font-family: Roboto;
       width: 100%;
       outline: none;
+      border-radius: 10px;
     }
     button {
       padding: 0 30px;
-      background-color: #111111;
-      color: red;
+      background-color: transparent;
+      color: $blueColor;
       cursor: pointer;
       outline: none;
       border: none;
@@ -58,8 +62,8 @@
     color: #ffffff;
     cursor: pointer;
     &:hover {
-      color: red;
-      transform: scale(1.2);
+      color: $blueColor;
+      transform: scale(1.1);
       transition: 0.4s ease-in-out;
     }
   }

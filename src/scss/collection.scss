@@ -1,6 +1,6 @@
 @import "../App.scss";
 .collection {
-  background: linear-gradient(#111, 30%, $sectionColor);
+  background: linear-gradient(#111, 50%, $sectionColor);
   height: 40rem;
   width: 100%;
   @include flexOne(column);

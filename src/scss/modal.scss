@@ -2,7 +2,6 @@
 .back-image {
   background-image: url("../images/collection.jpg");
   background-size: cover;
-  border: 2px solid red;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -15,7 +14,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #111111;
+  background-color: $sectionColor;
   opacity: 0.97;
 }
 .content {
@@ -34,6 +33,11 @@
     color: white;
     font-size: 40px;
     cursor: pointer;
+    &:hover {
+      color: $blueColor;
+      transform: scale(1.1);
+      transition: 0.4s ease-in-out;
+    }
   }
   h2 {
     @include title(white);
@@ -44,21 +48,22 @@
     top: 90px;
     input {
       padding: 15px 20px;
-      font-size: 30px;
-      color: #111111;
+      font-size: 24px;
+      color: $sectionColor;
       font-family: Roboto;
       width: 70%;
       outline: none;
+      border-radius: 10px;
     }
     button {
-      padding: 0 30px;
-      background-color: red;
-      color: #ffffff;
+      padding: 0 10px;
+      background-color: transparent;
+      color: $blueColor;
       cursor: pointer;
       outline: none;
       border: none;
       .searchIcon {
-        font-size: 50px;
+        font-size: 30px;
         font-weight: bolder;
       }
     }
