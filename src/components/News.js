@@ -23,7 +23,6 @@ const News = () => {
         return res.json();
       })
       .then(({ results }) => {
-        console.log(results);
         setmovies([...results]);
       });
   }, [api]);

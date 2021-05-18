@@ -5,38 +5,7 @@ const Footer = () => {
   return (
     <div className="footer">
       <div className="footer__description">
-        <div className="description__container">
-          {/* <div className="description__logo">
-            <h2>Lukafilm</h2>
-          </div> */}
-          {/* <div className="description__links">
-            <ul>
-              <li className="link-item">
-                <a>Accueil</a>
-              </li>
-              <li className="link-item">
-                <a>Films</a>
-              </li>
-              <li className="link-item">
-                <a>Series</a>
-              </li>
-              <li className="link-item">
-                <a>Nouvelles</a>
-              </li>
-            </ul>
-          </div> */}
-          {/* <div className="description__comments">
-            <h3>Commentaire</h3>
-            <form>
-              <input type="text" name="name" placeholder="votre nom" />
-              <textarea
-                name="comment"
-                placeholder="votre commentaire"
-              ></textarea>
-              <button>Envoyer</button>
-            </form>
-          </div> */}
-        </div>
+        <div className="description__container"></div>
       </div>
       <div className="footer__copyright">
         <p>

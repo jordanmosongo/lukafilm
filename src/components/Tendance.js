@@ -2,7 +2,7 @@ import React from "react";
 import "../scss/tendance.scss";
 import { makeStyles } from "@material-ui/core/styles";
 import Pagination from "@material-ui/lab/Pagination";
-import MovieCard from "../shared/MovieCard";
+import Card from "../shared/Card";
 import Title from "../shared/Title";
 import { useEffect, useState } from "react";
 import Loader from "../shared/Loader";
@@ -85,7 +85,7 @@ const Tendance = () => {
           {movies.length == 0
             ? ""
             : movies.map((movie) => {
-                return <MovieCard movie={movie} />;
+                return <Card movie={movie} />;
               })}
         </div>
         <div className="groupPageButton">

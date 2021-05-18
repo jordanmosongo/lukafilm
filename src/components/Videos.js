@@ -1,7 +1,6 @@
 import React from "react";
 import Title from "../shared/Title";
-import MovieCard from "../shared/MovieCard";
-import LatestMovieCard from "../shared/LatestMovieCard";
+import Card from "../shared/Card";
 import { useState, useEffect } from "react";
 import "../scss/latest.scss";
 
@@ -54,7 +53,7 @@ const Videos = () => {
               <Title titre="Videos and photos" />
             </div>
             {movies.slice(18, 19).map((movie) => {
-              return <MovieCard movie={movie} isLatest={false} />;
+              return <Card movie={movie} isLatest={false} />;
             })}
           </div>
           <div className="movie-card-container__right">

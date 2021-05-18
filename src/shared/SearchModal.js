@@ -4,7 +4,6 @@ import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import Close from "@material-ui/icons/Close";
-import SearchBox from "./SearchBox";
 import { SearchSharp } from "@material-ui/icons";
 import { useState } from "react";
 import "../scss/modal.scss";

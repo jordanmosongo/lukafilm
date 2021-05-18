@@ -1,7 +1,7 @@
 import React from "react";
 import "../scss/header.scss";
 import Menu from "@material-ui/icons/Menu";
-import FullPageMenu from "./FullPageMenu";
+import FullPageMenu from "../shared/FullPageMenu";
 import { useState } from "react";
 import SearchBox from "../shared/SearchBox";
 
