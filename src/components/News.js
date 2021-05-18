@@ -30,7 +30,7 @@ const News = () => {
     <div className="news">
       <div className="news__container">
         <div className="news__title">
-          <h2>Dernières nouvelles</h2>
+          <h2>Films à venir</h2>
         </div>
         <div className="news__content">
           <div className="news__content__left">

@@ -1,0 +1,7 @@
+@import "../App.scss";
+.movie-card-container {
+  @include flexOne(row);
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+}
