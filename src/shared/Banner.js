@@ -13,7 +13,7 @@ const settings = {
   speed: 500,
   slidesToShow: 1,
   slidesToScroll: 1,
-  cssEase: "linear",
+  cssEase: "ease-in-out",
   autoplay: true,
 };
 
