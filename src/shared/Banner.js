@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useControlled } from "@material-ui/core";
 import { useState, useEffect } from "react";
+
 const linkImage = "https://image.tmdb.org/t/p/w500";
 
 const settings = {
@@ -24,12 +25,6 @@ const BannerElement = ({ image }) => {
     </div>
   );
 };
-const movies = [
-  "/fPGeS6jgdLovQAKunNHX8l0avCy.jpg",
-  "/6ELCZlTA5lGUops70hKdB83WJxH.jpg",
-  "/inJjDhCjfhh3RtrJWBmmDqeuSYC.jpg",
-];
-
 const Banner = (props) => {
   const { firstText, secondText, thirdText, url } = props;
   const [images, setImages] = useState([]);
@@ -40,6 +35,7 @@ const Banner = (props) => {
       })
       .then(({ results }) => {
         if (results) {
+          console.log(results);
           setImages([...results]);
         }
       })
@@ -49,7 +45,9 @@ const Banner = (props) => {
     <div className="banner-shared">
       <Slider {...settings}>
         {images.map((image) => {
-          return <BannerElement image={image.backdrop_path} />;
+          return (
+            <BannerElement image={image.backdrop_path || image.profile_path} />
+          );
         })}
       </Slider>
       <div className="banner-shared__overlay"></div>

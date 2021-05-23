@@ -1,7 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import Button from "../shared/Button";
-import useMovieOrSerie from "../Hooks/useMovieOrSerie";
 import AllApisPath from "../Apis/AllApisPath";
 
 const Action = ({ topic }) => {

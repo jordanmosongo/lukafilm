@@ -1,9 +1,22 @@
 import React from "react";
+import AllApisPath from "../Apis/AllApisPath";
+import Banner from "../shared/Banner";
+import Container from "../shared/Container";
+import Paginate from "../shared/Paginate";
+import Title from "../shared/Title";
 
 const Acteurs = () => {
+  const { popular } = AllApisPath;
   return (
     <div>
-      <h2>Acteurs</h2>
+      <Banner firstText="A la recherche " secondText="des acteurs" />
+      <div className="films">
+        <div className="container">
+          <Title titre="Tous les acteurs" />
+          <Container url={popular("person", 1)} />
+          <Paginate />
+        </div>
+      </div>
     </div>
   );
 };

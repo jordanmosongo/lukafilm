@@ -4,6 +4,7 @@
   height: 100vh;
   overflow: hidden;
   position: relative;
+  background: linear-gradient($sectionColor, 30%, #111);
   .banner-image {
     width: 100%;
     img {
@@ -16,7 +17,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: $sectionColor;
+    background: linear-gradient($sectionColor, 30%, #111);
     opacity: 0.8;
   }
   .banner-shared__text {

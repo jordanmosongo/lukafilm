@@ -29,7 +29,7 @@ const Card = ({ movie }) => {
     strigger.parentNode.classList.remove("movie-card__effect");
     setdetail(false);
   };
-
+  if (!movie.profile_path) return "";
   return (
     <div
       className="movie-card"
@@ -37,7 +37,7 @@ const Card = ({ movie }) => {
       onMouseLeave={hideDetail}
     >
       <div className="movie-card__image">
-        <img src={linkImage + poster_path} />
+        <img src={linkImage + (poster_path || movie.profile_path)} />
       </div>
       <div className="movie-card__description">
         <h3>{title}</h3>
