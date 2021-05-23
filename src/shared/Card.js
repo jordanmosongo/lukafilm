@@ -29,7 +29,7 @@ const Card = ({ movie }) => {
     strigger.parentNode.classList.remove("movie-card__effect");
     setdetail(false);
   };
-  if (!movie.profile_path) return "";
+
   return (
     <div
       className="movie-card"
