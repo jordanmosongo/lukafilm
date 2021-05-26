@@ -3,7 +3,7 @@
   @include flexOne(column);
   width: 100vw;
   height: 100vh;
-  background-color: black;
+  background-color: $sectionColor;
   position: fixed;
   top: 0;
   left: 0;
@@ -20,7 +20,7 @@
 }
 .loader div {
   position: absolute;
-  border: 6px solid red;
+  border: 6px solid $blueColor;
   opacity: 1;
   border-radius: 50%;
   animation: loader 0.8s cubic-bezier(0, 0.2, 0.8, 1) infinite;

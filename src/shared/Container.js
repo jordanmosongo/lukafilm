@@ -1,20 +1,20 @@
 import React from "react";
 import Card from "../shared/Card";
 import useMovieOrSerie from "../Hooks/useMovieOrSerie";
-import "../scss/Container.scss";
 import Loader from "./Loader";
+import "../scss/Container.scss";
 
-const Container = ({ url }) => {
+const Container = ({ url, limit }) => {
   const { moviesOrSeries } = useMovieOrSerie(url);
   return (
     <div className="movie-card-container">
-      {!moviesOrSeries ? (
-        <Loader />
-      ) : (
-        moviesOrSeries.map((movie) => {
-          return <Card movie={movie} />;
-        })
-      )}
+      {limit === null || undefined
+        ? moviesOrSeries.map((movie) => {
+            return <Card movie={movie} />;
+          })
+        : moviesOrSeries.slice(0, limit).map((movie) => {
+            return <Card movie={movie} />;
+          })}
     </div>
   );
 };

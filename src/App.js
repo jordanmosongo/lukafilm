@@ -10,8 +10,7 @@ import { Route, Switch } from "react-router-dom";
 import Films from "./pages/Films";
 import Series from "./pages/Series";
 import Acteurs from "./pages/Acteurs";
-
-const MenuStateContext = React.createContext(false);
+import Details from "./pages/Detail/Details";
 
 function App() {
   AOS.init({ duration: 1000 });
@@ -19,18 +18,11 @@ function App() {
     <div className="App">
       <Header />
       <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/films">
-          <Films />
-        </Route>
-        <Route path="/series">
-          <Series />
-        </Route>
-        <Route path="/acteurs">
-          <Acteurs />
-        </Route>
+        <Route exact path="/" component={Home} />
+        <Route path="/films" component={Films} />
+        <Route path="/series" component={Series} />
+        <Route path="/acteurs" component={Acteurs} />
+        <Route path="/detail" component={Details} />
       </Switch>
       <Footer />
     </div>

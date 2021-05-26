@@ -1,0 +1,71 @@
+@import "../../App.scss";
+.banner-detail {
+  width: 100%;
+  position: relative;
+  background: linear-gradient($sectionColor, 30%, #111);
+  .banner-image {
+    width: 100%;
+    img {
+      width: 100%;
+    }
+  }
+  .banner-detail__overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient($sectionColor, 30%, #111);
+    opacity: 0.93;
+  }
+  .banner-detail__text {
+    position: absolute;
+    top: 15vh;
+    left: 0;
+    right: 0;
+    width: 80%;
+    margin: auto;
+    @include flexOne(column);
+    justify-content: center;
+    h2 {
+      @include title(#fff);
+    }
+    .detail {
+      @include flexOne(row);
+      align-items: flex-start;
+      width: 100%;
+      //border: 2px solid blue;
+      .movie {
+        width: 50%;
+      }
+      .description {
+        width: 50%;
+        @include flexOne(column);
+        align-items: flex-start;
+        justify-content: flex-start;
+        h3 {
+          font-size: 40px;
+          color: $blueColor;
+          font-family: $robotoFamily;
+          display: inline;
+        }
+        p {
+          font-size: 26px;
+          color: #fff;
+          font-family: $robotoFamily;
+          text-align: left;
+          margin-bottom: -8px;
+        }
+        span {
+          color: $blueColor;
+        }
+      }
+    }
+    .actor {
+      @include flexOne(column);
+    }
+    .similaire {
+      @include flexOne(column);
+    }
+  }
+}

@@ -1,11 +1,11 @@
-import { Favorite, People, Visibility } from "@material-ui/icons";
+import { Favorite, Visibility } from "@material-ui/icons";
 import React from "react";
 import { useState } from "react";
 import "../scss/card.scss";
 
 const linkImage = "https://image.tmdb.org/t/p/w300";
 const Card = ({ movie }) => {
-  const { poster_path, title, isLatest, overview } = movie;
+  const { poster_path, title } = movie;
   const [detail, setdetail] = useState(false);
   const showDetail = (event) => {
     event.preventDefault();
@@ -37,7 +37,7 @@ const Card = ({ movie }) => {
       onMouseLeave={hideDetail}
     >
       <div className="movie-card__image">
-        <img src={linkImage + (poster_path || movie.profile_path)} />
+        <img src={linkImage + (poster_path || movie.profile_path)} alt="" />
       </div>
       <div className="movie-card__description">
         <h3>{title}</h3>

@@ -9,7 +9,6 @@ const Acteurs = () => {
   const { popular } = AllApisPath;
   return (
     <div>
-      <Banner firstText="A la recherche " secondText="des acteurs" />
       <div className="films">
         <div className="container">
           <Title titre="Tous les acteurs" />

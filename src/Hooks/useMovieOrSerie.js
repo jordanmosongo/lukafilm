@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 const useMovieOrSerie = (url) => {
-  const [moviesOrSeries, setMoviesOrSeries] = useState([0]);
+  const [moviesOrSeries, setMoviesOrSeries] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetch(url)

@@ -3,8 +3,7 @@ import "../scss/banner-shared.scss";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useControlled } from "@material-ui/core";
-import { useState, useEffect } from "react";
+import useMovieOrSerie from "../Hooks/useMovieOrSerie";
 
 const linkImage = "https://image.tmdb.org/t/p/w500";
 
@@ -21,30 +20,16 @@ const settings = {
 const BannerElement = ({ image }) => {
   return (
     <div className="banner-image">
-      <img src={`${linkImage}${image}`} />
+      <img src={`${linkImage}${image}`} alt="" />
     </div>
   );
 };
-const Banner = (props) => {
-  const { firstText, secondText, thirdText, url } = props;
-  const [images, setImages] = useState([]);
-  useEffect(() => {
-    fetch(url)
-      .then((data) => {
-        return data.json();
-      })
-      .then(({ results }) => {
-        if (results) {
-          console.log(results);
-          setImages([...results]);
-        }
-      })
-      .catch((error) => console.log(error));
-  }, [useControlled]);
+const Banner = ({ firstText, secondText, url }) => {
+  const { moviesOrSeries } = useMovieOrSerie(url);
   return (
     <div className="banner-shared">
       <Slider {...settings}>
-        {images.map((image) => {
+        {moviesOrSeries.map((image) => {
           return (
             <BannerElement image={image.backdrop_path || image.profile_path} />
           );
@@ -56,7 +41,6 @@ const Banner = (props) => {
           <span>{firstText}</span>
           <span className="second-text">{secondText}</span>
         </p>
-        <p className="description">{thirdText}</p>
       </div>
     </div>
   );

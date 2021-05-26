@@ -7,6 +7,7 @@ import Loader from "../shared/Loader";
 import { ExpandLess, ExpandMore } from "@material-ui/icons";
 import useMovieOrSerie from "../Hooks/useMovieOrSerie";
 import AllApisPath from "../Apis/AllApisPath";
+import Container from "../shared/Container";
 
 const Tendance = () => {
   const [isQueryToggleSelected, setIsQueryToggleSelected] = useState(false);
@@ -20,7 +21,7 @@ const Tendance = () => {
   const handleClickSelect = () => {
     setIsItemToggleSelected(!isItemToggleSelected);
     setIsQueryToggleSelected(!isQueryToggleSelected);
-    topic == "movie" ? setTopic("tv") : setTopic("movie");
+    topic === "movie" ? setTopic("tv") : setTopic("movie");
   };
 
   if (loading) {
@@ -51,6 +52,7 @@ const Tendance = () => {
             </ul>
           )}
         </div>
+        {/* <Container url={popular(topic, 1)} /> */}
         <div className="movie-card-container">
           {moviesOrSeries.map((movie) => {
             return <Card movie={movie} />;

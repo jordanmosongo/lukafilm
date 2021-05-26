@@ -13,8 +13,14 @@ const AllApisPath = {
   gender: (topic) => {
     return `https://api.themoviedb.org/3/genre/${topic}/list?api_key=${apiKey}&language=FR`;
   },
-  actor: () => {
-    return `https://api.themoviedb.org/3/person/latest?api_key=${apiKey}&language=FR`;
+  details: (topic, id) => {
+    return `https://api.themoviedb.org/3/${topic}/${id}?api_key=${apiKey}&language=fr`;
+  },
+  similar: (topic, id, page) => {
+    return `https://api.themoviedb.org/3/${topic}/${id}/similar?api_key=${apiKey}&language=FR&page=${page}`;
+  },
+  actors: (topic, id) => {
+    return `https://api.themoviedb.org/3/${topic}/${id}/credits?api_key=${apiKey}&language=FR`;
   },
 };
 
