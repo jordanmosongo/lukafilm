@@ -19,10 +19,19 @@ function App() {
       <Header />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/films" component={Films} />
-        <Route path="/series" component={Series} />
-        <Route path="/acteurs" component={Acteurs} />
-        <Route path="/detail" component={Details} />
+        <Route path="/films" component={Films}>
+          <Switch>
+            <Route exact path="/films" component={Films} />
+            <Route path="/films/:id" component={Details} />
+          </Switch>
+        </Route>
+        <Route path="/series" component={Series}>
+          <Switch>
+            <Route exact path="/series" component={Series} />
+            <Route path="/series/:id" component={Details} />
+          </Switch>
+        </Route>
+        <Route path="/acteurs" component={Acteurs}></Route>
       </Switch>
       <Footer />
     </div>

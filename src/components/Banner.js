@@ -1,6 +1,6 @@
 import React from "react";
 import "../scss/banner.scss";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const Banner = () => {
   const arrayOfText = [

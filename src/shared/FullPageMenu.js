@@ -1,6 +1,7 @@
 import React from "react";
 import MenuLink from "../components/MenuLink";
 import Close from "@material-ui/icons/Close";
+
 import "../scss/fullPageMenu.scss";
 
 const FullPageMenu = (props) => {

@@ -12,7 +12,6 @@ const Action = ({ topic }) => {
         return data.json();
       })
       .then(({ genres }) => {
-        console.log(genres);
         setGenders([...genres]);
       })
       .catch((err) => console.log(err));

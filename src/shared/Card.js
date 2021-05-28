@@ -2,10 +2,14 @@ import { Favorite, Visibility } from "@material-ui/icons";
 import React from "react";
 import { useState } from "react";
 import "../scss/card.scss";
+import { useHistory } from "react-router-dom";
 
 const linkImage = "https://image.tmdb.org/t/p/w300";
+
 const Card = ({ movie }) => {
-  const { poster_path, title } = movie;
+  const history = useHistory();
+
+  const { poster_path, title, id } = movie;
   const [detail, setdetail] = useState(false);
   const showDetail = (event) => {
     event.preventDefault();
@@ -28,6 +32,9 @@ const Card = ({ movie }) => {
     let strigger = event.target;
     strigger.parentNode.classList.remove("movie-card__effect");
     setdetail(false);
+  };
+  const handleDetail = () => {
+    history.push(`${window.location.pathname}/${id}`);
   };
 
   return (
@@ -55,7 +62,9 @@ const Card = ({ movie }) => {
         <>
           <div className="movie-card__over-effect"></div>
           <div className="movie-card__over-content">
-            <button data-aos="fade-left">View detail</button>
+            <button data-aos="fade-left" onClick={handleDetail}>
+              View detail
+            </button>
             <button data-aos="fade-right">View detail</button>
           </div>
         </>

@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "../shared/Card";
 import useMovieOrSerie from "../Hooks/useMovieOrSerie";
-import Loader from "./Loader";
+//import Loader from "./Loader";
 import "../scss/Container.scss";
 
 const Container = ({ url, limit }) => {

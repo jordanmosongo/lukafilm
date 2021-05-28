@@ -8,8 +8,10 @@ const useMovieOrSerie = (url) => {
       .then((data) => {
         return data.json();
       })
-      .then(({ results }) => {
-        setMoviesOrSeries([...results]);
+      .then((data) => {
+        data.results
+          ? setMoviesOrSeries([...data.results])
+          : setMoviesOrSeries([...data.cast]);
         setLoading(false);
       })
       .catch((error) => console.log(error));

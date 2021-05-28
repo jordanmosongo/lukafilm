@@ -22,7 +22,7 @@ const Series = () => {
         </div>
         <div className="container">
           <Title titre="Toutes les séries" />
-          <Container url={discover("movie", 1)} />
+          <Container url={discover("tv", 1)} />
           <Paginate />
         </div>
       </div>
