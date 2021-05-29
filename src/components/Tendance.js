@@ -11,6 +11,7 @@ const Tendance = () => {
   const [querySelect, setQuerySelect] = useState(false);
   const [itemSelected, setItemSelected] = useState(false);
   const [topic, setTopic] = useState("movie");
+  const [page, SetPage] = useState(1);
   const { popular } = AllApisPath;
 
   const handleClickSelect = () => {
@@ -40,8 +41,8 @@ const Tendance = () => {
             </ul>
           )}
         </div>
-        <Container url={popular(topic, 1)} />
-        <Paginate />
+        <Container url={popular(topic, page)} />
+        <Paginate handlePaginate={(page) => SetPage(page)} />
       </div>
     </div>
   );
