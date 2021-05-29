@@ -6,12 +6,13 @@ import { ExpandLess, ExpandMore } from "@material-ui/icons";
 import AllApisPath from "../Apis/AllApisPath";
 import Container from "../shared/Container";
 import Paginate from "../shared/Paginate";
+import paginate from "../util/paginate";
 
 const Tendance = () => {
   const [querySelect, setQuerySelect] = useState(false);
   const [itemSelected, setItemSelected] = useState(false);
   const [topic, setTopic] = useState("movie");
-  const [page, SetPage] = useState(1);
+  const [page, setPage] = useState(1);
   const { popular } = AllApisPath;
 
   const handleClickSelect = () => {
@@ -42,7 +43,10 @@ const Tendance = () => {
           )}
         </div>
         <Container url={popular(topic, page)} />
-        <Paginate handlePaginate={(page) => SetPage(page)} />
+        <Paginate
+          count={500}
+          paginateFromChild={(pageValue) => setPage(paginate(pageValue, page))}
+        />
       </div>
     </div>
   );

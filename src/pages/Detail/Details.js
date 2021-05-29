@@ -5,6 +5,7 @@ import useDetail from "../../Hooks/useDetail";
 import Container from "../../shared/Container";
 import StarIcon from "@material-ui/icons/Star";
 import StarHalfIcon from "@material-ui/icons/StarHalf";
+import Paginate from "../../shared/Paginate";
 
 const linkImage = "https://image.tmdb.org/t/p/w500";
 
@@ -79,12 +80,14 @@ const Details = () => {
           </div>
         </div>
         <div className="actor">
-          <h2>Casting</h2>
+          <h2>Acteurs et actrices</h2>
           <Container url={actors(topic, id)} limit={5} />
+          <Paginate count={4} />
         </div>
         <div className="similaire">
           <h2>{topic === "movie" ? "Films" : "Séries"} similaires</h2>
           <Container url={similar(topic, id, 1)} limit={5} />
+          <Paginate count={4} />
         </div>
       </div>
     </div>

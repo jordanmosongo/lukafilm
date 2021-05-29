@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Banner from "../shared/Banner";
 import "../scss/films.scss";
 import Title from "../shared/Title";
@@ -6,9 +6,11 @@ import Container from "../shared/Container";
 import Paginate from "../shared/Paginate";
 import AllApisPath from "../Apis/AllApisPath";
 import Action from "../shared/Action";
+import paginate from "../util/paginate";
 
 const Films = () => {
   const { discover, trending } = AllApisPath;
+  const [page, setPage] = useState(1);
   return (
     <div>
       <Banner
@@ -20,8 +22,13 @@ const Films = () => {
         <Action topic="movie" />
         <div className="container">
           <Title titre="Tous les films" />
-          <Container url={discover("movie", 1)} />
-          <Paginate />
+          <Container url={discover("movie", page)} />
+          <Paginate
+            count={500}
+            paginateFromChild={(pageValue) =>
+              setPage(paginate(pageValue, page))
+            }
+          />
         </div>
       </div>
     </div>
