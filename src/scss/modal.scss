@@ -44,35 +44,67 @@
   }
   .banner__input {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    top: 90px;
-    input {
-      padding: 15px 20px;
-      font-size: 24px;
-      color: $sectionColor;
-      font-family: Roboto;
-      width: 70%;
-      outline: none;
-      border-radius: 10px;
-    }
-    button {
-      padding: 0 10px;
-      background-color: transparent;
-      color: $blueColor;
-      cursor: pointer;
-      outline: none;
-      border: none;
-      .searchIcon {
-        font-size: 30px;
-        font-weight: bolder;
+    align-items: center;
+    width: 40%;
+    div {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      input {
+        padding: 15px 20px;
+        font-size: 24px;
+        color: $sectionColor;
+        font-family: Roboto;
+        width: 90%;
+        outline: none;
+        border-radius: 10px;
+      }
+      button {
+        padding: 0 10px;
+        background-color: transparent;
+        color: $blueColor;
+        cursor: pointer;
+        outline: none;
+        border: none;
+        .searchIcon {
+          font-size: 30px;
+          font-weight: bolder;
+        }
       }
     }
-  }
-  .result {
     p {
       color: #ffffff;
       font-size: 30px;
       font-family: $robotoFamily;
+    }
+  }
+  .result {
+    width: 90%;
+    overflow-y: scroll;
+    @include flexOne(column);
+    justify-content: flex-start;
+    .movie-card-container {
+      .movie-cardd {
+        border: 2px solid $blueColor;
+        width: 19%;
+        position: relative;
+        border-radius: 10px;
+        cursor: pointer;
+        .movie-card__image {
+          width: 100%;
+          border-radius: 10px;
+          img {
+            width: 100%;
+            border-radius: 10px 10px 0 0;
+          }
+          h3 {
+            color: $blueColor;
+            text-align: center;
+          }
+        }
+      }
     }
   }
 }

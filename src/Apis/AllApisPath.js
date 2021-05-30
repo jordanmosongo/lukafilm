@@ -22,6 +22,9 @@ const AllApisPath = {
   actors: (topic, id) => {
     return `https://api.themoviedb.org/3/${topic}/${id}/credits?api_key=${apiKey}&language=FR`;
   },
+  search: (topic, categorie) => {
+    return `https://api.themoviedb.org/3/${topic}/${categorie}?api_key=${apiKey}&language=fr&page=`;
+  },
 };
 
 export default AllApisPath;
