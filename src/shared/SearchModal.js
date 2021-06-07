@@ -9,15 +9,17 @@ import "../scss/modal.scss";
 import Button from "./Button";
 import useStyles from "../util/modal.configuration";
 import useSearch from "../Hooks/useSearch";
+import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
+import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 const linkImage = "https://image.tmdb.org/t/p/w300";
 
 const Card = ({ movie }) => {
-  const { backdrop_path, title } = movie;
+  const { backdrop_path, title, name } = movie;
   return (
     <div className="movie-cardd">
       <div className="movie-card__image">
         <img src={linkImage + (backdrop_path || movie.profile_path)} alt="" />
-        <h3>{title}</h3>
+        <h3>{title || name}</h3>
       </div>
     </div>
   );
@@ -28,8 +30,9 @@ const SearchModal = (props) => {
   const val = entry.toString();
   const [entryValue, setEntryValue] = useState(val);
   const { modal, paper } = useStyles();
+  const [page, setPage] = useState(1);
 
-  const moviesOrSeries = useSearch(200, entryValue);
+  const moviesOrSeries = useSearch(page, entryValue);
   return (
     <div>
       <Modal
@@ -65,11 +68,24 @@ const SearchModal = (props) => {
                 </div>
                 {entryValue.length >= 3 && (
                   <p>
-                    <span>{moviesOrSeries.length}</span> resultats pour{" "}
+                    <span>{moviesOrSeries.length}</span> resultats sur 1000 pour{" "}
                     {`"${entryValue}"`}
                   </p>
                 )}
                 {entryValue.length < 3 && <p>continuer votre recherche</p>}
+                <div className="pages">
+                  <ArrowBackIosIcon
+                    className="page-icon"
+                    onClick={() => setPage((page) => (page > 1 ? page - 1 : 1))}
+                  />
+                  <span>{`page ${page}/10`}</span>
+                  <ArrowForwardIosIcon
+                    className="page-icon"
+                    onClick={() =>
+                      setPage((page) => (page < 10 ? page + 1 : 10))
+                    }
+                  />
+                </div>
               </div>
               <div className="result">
                 <div className="movie-card-container">

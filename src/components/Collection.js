@@ -13,7 +13,10 @@ const CardSlick = ({ movie }) => {
     <div className="card-wrapper">
       <div className="card">
         <div className="card-image">
-          <img src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`} />
+          <img
+            src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
+            alt="card"
+          />
         </div>
         <ul className="social-icons">
           <li>
