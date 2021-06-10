@@ -1,13 +1,12 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import Button from "../shared/Button";
 import AllApisPath from "../Apis/AllApisPath";
 
-const Action = ({ topic }) => {
+const Action = (props) => {
   const { gender } = AllApisPath;
   const [genders, setGenders] = useState([]);
   useEffect(() => {
-    fetch(gender(topic))
+    fetch(gender(props.topic))
       .then((data) => {
         return data.json();
       })
@@ -18,8 +17,11 @@ const Action = ({ topic }) => {
   }, []);
   return (
     <div className="action">
-      {genders.map(({ name }) => {
-        return <Button content={name} />;
+      <button onClick={() => props.loadInitialData()}>Tous</button>
+      {genders.map(({ name, id }) => {
+        return (
+          <button onClick={() => props.filterByGender(id, name)}>{name}</button>
+        );
       })}
     </div>
   );

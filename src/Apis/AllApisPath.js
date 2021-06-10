@@ -7,7 +7,11 @@ const AllApisPath = {
     return `
     https://api.themoviedb.org/3/trending/${topic}/week?api_key=${apiKey}`;
   },
-  discover: (topic, page) => {
+  discover: (topic, page, genderId) => {
+    if (genderId !== null) {
+      console.log(genderId);
+      return `https://api.themoviedb.org/3/discover/${topic}?api_key=${apiKey}&page=${page}&with_genres=${genderId}`;
+    }
     return `https://api.themoviedb.org/3/discover/${topic}?api_key=${apiKey}&page=${page}`;
   },
   gender: (topic) => {

@@ -11,6 +11,8 @@ import paginate from "../util/paginate";
 const Films = () => {
   const { discover, trending } = AllApisPath;
   const [page, setPage] = useState(1);
+  const [genderId, setGenderId] = useState(null);
+  const [title, setTitle] = useState("Tous les films");
   return (
     <div>
       <Banner
@@ -19,10 +21,20 @@ const Films = () => {
         url={trending("movie")}
       />
       <div className="films">
-        <Action topic="movie" />
+        <Action
+          topic="movie"
+          loadInitialData={() => {
+            setGenderId(null);
+            setTitle("Tous les films");
+          }}
+          filterByGender={(id, name) => {
+            setGenderId(id);
+            setTitle(name);
+          }}
+        />
         <div className="container">
-          <Title titre="Tous les films" />
-          <Container url={discover("movie", page)} />
+          <Title titre={title} />
+          <Container url={discover("movie", page, genderId)} />
           <Paginate
             count={500}
             paginateFromChild={(pageValue) =>
