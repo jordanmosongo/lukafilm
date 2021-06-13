@@ -13,7 +13,8 @@ $blackColor: #0e0e0e;
 $robotoFamily: Roboto;
 $albaFamily: Alba;
 $newColor: #0b131b;
-$blueColor: #1987f3;
+//$blueColor: #1987f3;
+$blueColor: #ffad00;
 @mixin title($color) {
   color: $color;
   font-size: 35px;

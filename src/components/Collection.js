@@ -1,6 +1,5 @@
 import React from "react";
 import "../scss/collection.scss";
-import { useState, useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -42,10 +41,9 @@ let settings = {
   cssEase: "linear",
   autoplay: true,
 };
-const Collection = () => {
-  const [topic, setTopic] = useState("movie");
+const Collection = ({ topic }) => {
+  console.log(topic);
   const { trending } = AllApisPath;
-
   const { moviesOrSeries, loading } = useMovieOrSerie(trending(topic));
 
   return (

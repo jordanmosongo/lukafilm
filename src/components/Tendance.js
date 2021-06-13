@@ -1,24 +1,36 @@
-import React from "react";
+import React, { useReducer, useState } from "react";
 import "../scss/tendance.scss";
 import Title from "../shared/Title";
-import { useState } from "react";
 import { ExpandLess, ExpandMore } from "@material-ui/icons";
 import AllApisPath from "../Apis/AllApisPath";
 import Container from "../shared/Container";
 import Paginate from "../shared/Paginate";
 import paginate from "../util/paginate";
 
-const Tendance = () => {
+const reducer = (state, action) => {
+  action === "Séries" ? (state = "tv") : (state = "movie");
+  return state;
+};
+
+const Tendance = (props) => {
   const [querySelect, setQuerySelect] = useState(false);
   const [itemSelected, setItemSelected] = useState(false);
-  const [topic, setTopic] = useState("movie");
+  const [topic, dispatch] = useReducer(reducer, "movie");
   const [page, setPage] = useState(1);
   const { popular } = AllApisPath;
 
-  const handleClickSelect = () => {
-    setItemSelected(!itemSelected);
+  const handleClickSelect = (event) => {
     setQuerySelect(!querySelect);
-    topic === "movie" ? setTopic("tv") : setTopic("movie");
+    const val = event.target;
+    dispatch(val.textContent);
+    if (val.textContent === "Séries") {
+      setItemSelected(true);
+    } else {
+      setItemSelected(false);
+    }
+    console.log(itemSelected);
+    console.log(topic);
+    props.trendingTopic(topic);
   };
   return (
     <div className="tendance">
@@ -35,9 +47,7 @@ const Tendance = () => {
           </button>
           {querySelect && (
             <ul className="select-categorie" data-aos="zoom-in">
-              <li className="active" onClick={handleClickSelect}>
-                Films
-              </li>
+              <li onClick={handleClickSelect}>Films</li>
               <li onClick={handleClickSelect}>Séries</li>
             </ul>
           )}
