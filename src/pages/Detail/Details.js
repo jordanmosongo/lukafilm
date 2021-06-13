@@ -2,10 +2,10 @@ import React from "react";
 import "./detail.scss";
 import AllApisPath from "../../Apis/AllApisPath";
 import useDetail from "../../Hooks/useDetail";
-import Container from "../../shared/Container";
+import Container from "../../components/container/Container";
 import StarIcon from "@material-ui/icons/Star";
 import StarHalfIcon from "@material-ui/icons/StarHalf";
-import Paginate from "../../shared/Paginate";
+import Paginate from "../../components/paginate/Paginate";
 
 const linkImage = "https://image.tmdb.org/t/p/w500";
 

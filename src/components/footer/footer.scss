@@ -1,0 +1,28 @@
+@import "../../App.scss";
+.footer {
+  width: 100%;
+  background-color: #0e1b22;
+  @include flexOne(column);
+  justify-content: space-between;
+  .footer__copyright {
+    width: 90%;
+    margin: auto;
+    @include flexOne(column);
+    p {
+      color: #fff;
+      font-size: 22px;
+      font-family: $robotoFamily;
+      line-height: 30px;
+      a {
+        margin-top: 5px;
+        text-decoration: none;
+        color: inherit;
+        color: $blueColor;
+      }
+    }
+    img {
+      margin-top: 30px;
+      width: 20%;
+    }
+  }
+}

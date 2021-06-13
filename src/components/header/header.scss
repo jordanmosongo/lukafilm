@@ -1,0 +1,70 @@
+@import "../../App.scss";
+@font-face {
+  font-family: Alba;
+  src: url("../../fonts/Shark\ Ready.ttf");
+}
+.add-black {
+  background-color: $sectionColor;
+}
+.header {
+  height: 10vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 200;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .logo {
+    margin-left: 30px;
+    font-size: 45px;
+    font-family: Alba;
+    font-weight: bolder;
+    color: #fff;
+    span {
+      color: $blueColor;
+    }
+  }
+  .header-container {
+    display: flex;
+  }
+  .banner__input {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    input {
+      padding: 10px 15px;
+      font-size: 20px;
+      color: $sectionColor;
+      font-family: Roboto;
+      width: 100%;
+      outline: none;
+      border-radius: 10px;
+    }
+    button {
+      padding: 0 30px;
+      background-color: transparent;
+      color: $blueColor;
+      cursor: pointer;
+      outline: none;
+      border: none;
+      .searchIcon {
+        font-size: 25px;
+        font-weight: bolder;
+      }
+    }
+  }
+  .menu {
+    margin-right: 30px;
+    margin-left: 30px;
+    font-size: 40px;
+    font-weight: bolder;
+    color: #ffffff;
+    cursor: pointer;
+    &:hover {
+      color: $blueColor;
+      transform: scale(1.1);
+      transition: 0.4s ease-in-out;
+    }
+  }
+}

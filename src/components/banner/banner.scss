@@ -1,0 +1,70 @@
+@import "../../App.scss";
+@font-face {
+  font-family: Womby;
+  src: url("../../fonts/Womby-Regular.ttf");
+}
+@font-face {
+  font-family: Roboto;
+  src: url("../../fonts/Roboto-Regular.ttf");
+}
+
+.banner {
+  background: url("../../images/collection.jpg") no-repeat;
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+  .banner__blur {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: $sectionColor;
+    //background: linear-gradient(#111, 30%, $sectionColor);
+    opacity: 0.9;
+    display: flex;
+  }
+  .banner__blur__content {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h1 {
+      color: #ffffff;
+      font-size: 80px;
+      bottom: -50px;
+      font-family: Womby;
+      line-height: 100px;
+      text-transform: uppercase;
+      span {
+        color: $blueColor;
+      }
+      @media (max-width: 768px) {
+        font-size: 70px;
+      }
+      @media (max-width: 540px) {
+        font-size: 45px;
+      }
+    }
+    p {
+      color: #ffffff;
+      position: relative;
+      top: -80px;
+      font-size: 40px;
+      line-height: 60px;
+      font-family: Roboto;
+      @media (max-width: 768px) {
+        font-size: 35px;
+      }
+      @media (max-width: 540px) {
+        font-size: 20px;
+      }
+    }
+  }
+}
