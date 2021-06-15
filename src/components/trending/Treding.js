@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./trending.scss";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -32,17 +32,28 @@ const CardSlick = ({ movie }) => {
     </div>
   );
 };
-let settings = {
-  dots: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 4,
-  slidesToScroll: 1,
-  cssEase: "linear",
-  autoplay: true,
+const settings = () => {
+  return {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: +`${
+      window.innerWidth <= 540
+        ? 1
+        : window.innerWidth <= 780
+        ? 2
+        : window.innerWidth <= 1280
+        ? 3
+        : 4
+    }`,
+    slidesToScroll: 1,
+    cssEase: "linear",
+    autoplay: true,
+  };
 };
 const Trending = ({ topic }) => {
   console.log(topic);
+  console.log(window.innerWidth);
   const { trending } = AllApisPath;
   const { moviesOrSeries, loading } = useMovieOrSerie(trending(topic));
 
@@ -51,7 +62,7 @@ const Trending = ({ topic }) => {
       <div className="collection__container">
         <h2>Tendance du moment</h2>
         <div className="collection__container__image">
-          <Slider {...settings}>
+          <Slider {...settings()}>
             {moviesOrSeries.map((movie) => {
               return <CardSlick movie={movie} />;
             })}
