@@ -11,8 +11,7 @@ const Footer = () => {
           alt="logo the movie data base"
         ></img>
         <p>
-          Ce produit utilise l'api TMDb <br /> Lukafilm &copy;2021 développé par{" "}
-          <a href="https://jordanmosongo.netlify.app/">jordan mosongo</a>
+          Ce produit utilise l'api TMDb <br /> Tous droits réservés &copy;2021
         </p>
       </div>
     </div>

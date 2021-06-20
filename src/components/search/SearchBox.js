@@ -2,7 +2,6 @@ import React from "react";
 import SearchSharp from "@material-ui/icons/SearchSharp";
 import SearchModal from "../modal/SearchModal";
 import { useState } from "react";
-import Button from "../bouton/Button";
 
 const SearchBox = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -29,7 +28,9 @@ const SearchBox = () => {
         placeholder="Tapez votre recherche"
         onChange={handleSearch}
       />
-      <Button content={<SearchSharp className="searchIcon" />} />
+      <button onClick={() => showModal()}>
+        <SearchSharp className="searchIcon" />
+      </button>
       <SearchModal
         modalState={isModalVisible}
         entry={userQuery}

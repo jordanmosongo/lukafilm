@@ -38,8 +38,10 @@ const Popularity = (props) => {
             titre={itemSelected ? "Séries populaires" : "Films populaires"}
           />
           <button onClick={() => setQuerySelect(!querySelect)}>
-            <span>
+            <span className="selection-title">
               {itemSelected ? "Séries" : "Films"}
+            </span>
+            <span className="selection-icon">
               {querySelect ? <ExpandLess /> : <ExpandMore />}
             </span>
           </button>

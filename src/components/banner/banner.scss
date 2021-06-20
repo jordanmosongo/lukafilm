@@ -46,24 +46,27 @@
         color: $blueColor;
       }
       @media (max-width: 768px) {
-        font-size: 70px;
+        font-size: 80px;
       }
       @media (max-width: 540px) {
-        font-size: 45px;
+        font-size: 60px;
       }
     }
     p {
       color: #ffffff;
       position: relative;
       top: -80px;
-      font-size: 40px;
+      font-size: 60px;
       line-height: 60px;
       font-family: Roboto;
+      width: 50%;
       @media (max-width: 768px) {
-        font-size: 35px;
+        width: 100%;
+        line-height: 70px;
       }
       @media (max-width: 540px) {
-        font-size: 20px;
+        font-size: 42px;
+        line-height: 50px;
       }
     }
   }

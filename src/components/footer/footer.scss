@@ -24,5 +24,15 @@
       margin-top: 30px;
       width: 20%;
     }
+    @media (max-width: 768px) {
+      img {
+        width: 40%;
+      }
+    }
+    @media (max-width: 480px) {
+      img {
+        width: 60%;
+      }
+    }
   }
 }
