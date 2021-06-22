@@ -11,19 +11,7 @@ import useStyles from "../../util/modal.configuration";
 import useSearch from "../../Hooks/useSearch";
 import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
-const linkImage = "https://image.tmdb.org/t/p/w300";
-
-const Card = ({ movie }) => {
-  const { backdrop_path, title, name } = movie;
-  return (
-    <div className="movie-cardd">
-      <div className="movie-card__image">
-        <img src={linkImage + (backdrop_path || movie.profile_path)} alt="" />
-        <h3>{title || name}</h3>
-      </div>
-    </div>
-  );
-};
+import Card from "../card/Card";
 
 const SearchModal = (props) => {
   const { modalState, entry, closeModalFromChild } = props;
@@ -56,8 +44,8 @@ const SearchModal = (props) => {
                 onClick={() => closeModalFromChild()}
               />
               <h2>Zone de recherche</h2>
-              <div className="banner__input">
-                <div>
+              <div className="results">
+                <div className="results__input">
                   <input
                     type="text"
                     placeholder="Tapez votre recherche"
@@ -66,28 +54,35 @@ const SearchModal = (props) => {
                   />
                   <Button content={<SearchSharp className="searchIcon" />} />
                 </div>
-                {entryValue.length >= 3 && (
-                  <p>
-                    <span>{moviesOrSeries.length}</span> resultats sur 1000 pour{" "}
-                    {`"${entryValue}"`}
-                  </p>
-                )}
-                {entryValue.length < 3 && <p>continuer votre recherche</p>}
-                <div className="pages">
-                  <ArrowBackIosIcon
-                    className="page-icon"
-                    onClick={() => setPage((page) => (page > 1 ? page - 1 : 1))}
-                  />
-                  <span>{`page ${page}/10`}</span>
-                  <ArrowForwardIosIcon
-                    className="page-icon"
-                    onClick={() =>
-                      setPage((page) => (page < 10 ? page + 1 : 10))
-                    }
-                  />
-                </div>
               </div>
-              <div className="result">
+              {entryValue.length < 3 ? (
+                <p>continuer votre recherche</p>
+              ) : (
+                <div className="results__title">
+                  <p>
+                    <span>{moviesOrSeries.length}</span> resultats{" "}
+                    <span className="resultat">
+                      sur 1000 pour {`${entryValue}`}
+                    </span>
+                  </p>
+                  <div className="pages">
+                    <ArrowBackIosIcon
+                      className="page-icon"
+                      onClick={() =>
+                        setPage((page) => (page > 1 ? page - 1 : 1))
+                      }
+                    />
+                    <span>{`page ${page}/5`}</span>
+                    <ArrowForwardIosIcon
+                      className="page-icon"
+                      onClick={() =>
+                        setPage((page) => (page < 5 ? page + 1 : 5))
+                      }
+                    />
+                  </div>
+                </div>
+              )}
+              <div className="results__body">
                 <div className="movie-card-container">
                   {moviesOrSeries.map((movie) => {
                     return <Card movie={movie} />;
