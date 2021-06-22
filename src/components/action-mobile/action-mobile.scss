@@ -1,0 +1,74 @@
+@import "../../App.scss";
+.action-mobile {
+  button {
+    text-align: left;
+    background-color: transparent;
+    font-size: 30px;
+    color: $blueColor;
+    outline: none;
+    appearance: none;
+    border: none;
+    padding-left: 20px;
+    span {
+      cursor: pointer;
+    }
+    @media (max-width: 540px) {
+      .selection-title {
+        display: none;
+      }
+      .selection-icon {
+        transform: scale(1.4);
+        color: $blueColor;
+        animation: pulse 2.5s infinite;
+        @keyframes pulse {
+          0% {
+            transform: scale(1);
+            color: #fff;
+          }
+
+          70% {
+            transform: scale(1.4);
+            color: $blueColor;
+          }
+
+          100% {
+            transform: scale(1);
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+  .select-categorie {
+    width: 300px;
+    position: absolute;
+    right: 0;
+    background-color: #13202b;
+    top: 60px;
+    overflow-x: hidden;
+    @include flexOne(column);
+    align-items: flex-start;
+    padding: 20px 0;
+    z-index: 4;
+    li {
+      margin-left: 0;
+      font-family: $robotoFamily;
+      font-size: 28px;
+      color: #fff;
+      list-style: none;
+      left: 0;
+      width: 100%;
+      padding-left: 20px;
+      cursor: pointer;
+      @include flexOne(row);
+      justify-content: flex-start;
+      &.activee,
+      &:hover {
+        background-color: $blueColor;
+      }
+    }
+  }
+  @media (min-width: 770px) {
+    display: none;
+  }
+}

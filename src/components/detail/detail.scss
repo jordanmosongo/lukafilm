@@ -1,0 +1,33 @@
+@import "../../App.scss";
+.movie-card__effect {
+  .movie-card__over-effect {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: $sectionColor;
+    opacity: 0.9;
+  }
+  .movie-card__over-content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    cursor: initial;
+    @include flexOne(column);
+    button {
+      margin-bottom: 10px;
+      border: 1px solid $blueColor;
+      @include bouton(transparent, $blueColor);
+      &:hover {
+        @include boutonHover($blueColor, $whiteColor);
+        transform: scale(1.1);
+        transition: 0.4s ease-in-out;
+        border: 1px solid $blueColor;
+      }
+    }
+  }
+}

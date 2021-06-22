@@ -1,0 +1,22 @@
+@import "../../App.scss";
+.groupPageButton {
+  margin: 20px 0;
+  div {
+    color: $blueColor;
+  }
+  button {
+    @include bouton(transparent, $blueColor);
+    border: 1px solid $blueColor;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin: 0 10px;
+    &:hover {
+      @include boutonHover($blueColor, $whiteColor);
+      transform: scale(1.1);
+      transition: 0.4s ease-in-out;
+      border: 1px solid $blueColor;
+    }
+  }
+  margin: auto;
+  padding: 20px;
+}

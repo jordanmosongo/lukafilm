@@ -1,19 +1,37 @@
-import logo from "./logo.svg";
 import "./App.scss";
-import Header from "./components/Header";
-import Home from "./pages/Home";
-import Footer from "./components/Footer";
+import Header from "./components/header/Header";
+import Home from "./pages/Home/Home";
+import Footer from "./components/footer/Footer";
 import React from "react";
-import Nouvelles from "./pages/Nouvelles";
-
-const MenuStateContext = React.createContext(false);
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { Route, Switch } from "react-router-dom";
+import Films from "./pages/Film/Films";
+import Series from "./pages/Serie/Series";
+import Acteurs from "./pages/Acteur/Acteurs";
+import Details from "./pages/Detail/Details";
 
 function App() {
+  AOS.init({ duration: 1000 });
   return (
     <div className="App">
       <Header />
-      <Home />
-      {/* <Nouvelles /> */}
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/films" component={Films}>
+          <Switch>
+            <Route exact path="/films" component={Films} />
+            <Route path="/films/:id" component={Details} />
+          </Switch>
+        </Route>
+        <Route path="/series" component={Series}>
+          <Switch>
+            <Route exact path="/series" component={Series} />
+            <Route path="/series/:id" component={Details} />
+          </Switch>
+        </Route>
+        <Route path="/acteurs" component={Acteurs}></Route>
+      </Switch>
       <Footer />
     </div>
   );

@@ -1,0 +1,6 @@
+@import "../../App.scss";
+.movie-card-container {
+  @include flexOne(row);
+  flex-wrap: wrap;
+  width: 100%;
+}

@@ -1,0 +1,23 @@
+@import "../../App.scss";
+.films {
+  width: 100%;
+  background: linear-gradient(#111, 50%, $sectionColor);
+  .container {
+    padding: 40px 0;
+    width: 90%;
+    margin: auto;
+    @include flexOne(column);
+    .container__title {
+      padding-bottom: 30px;
+      position: relative;
+      h2 {
+        @include title(#fff);
+      }
+      @media (max-width: 768px) {
+        width: 100%;
+        @include flexOne(row);
+        justify-content: space-between;
+      }
+    }
+  }
+}
