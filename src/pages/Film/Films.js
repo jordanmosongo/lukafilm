@@ -7,8 +7,9 @@ import Paginate from "../../components/paginate/Paginate";
 import AllApisPath from "../../Apis/AllApisPath";
 import Action from "../../components/action/Action";
 import paginate from "../../util/paginate";
+import ActionMobile from "../../components/action-mobile/ActionMobile";
 
-const Films = () => {
+const Films = (props) => {
   const { discover, trending } = AllApisPath;
   const [page, setPage] = useState(1);
   const [genderId, setGenderId] = useState(null);
@@ -33,7 +34,16 @@ const Films = () => {
           }}
         />
         <div className="container">
-          <Title titre={title} />
+          <div className="container__title">
+            <Title titre={title} />
+            <ActionMobile
+              topic="movie"
+              manipulate={(name, id) => {
+                setTitle(name);
+                setGenderId(id);
+              }}
+            />
+          </div>
           <Container url={discover("movie", page, genderId)} />
           <Paginate
             count={500}

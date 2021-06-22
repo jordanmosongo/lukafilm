@@ -9,7 +9,13 @@ const Header = () => {
   const [menu, setMenu] = useState(false);
   return (
     <Fragment>
-      <div className={`${useScroll() ? "header add-black" : "header"}`}>
+      <div
+        className={`${
+          useScroll() || window.location.pathname !== "/"
+            ? "header add-black"
+            : "header"
+        }`}
+      >
         <a className="logo" href="/">
           Luka<span>film</span>
         </a>

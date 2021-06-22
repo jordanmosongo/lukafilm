@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import AllApisPath from "../../Apis/AllApisPath";
+import "./action.scss";
 
 const Action = (props) => {
   const { gender } = AllApisPath;

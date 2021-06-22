@@ -6,12 +6,13 @@ import Paginate from "../../components/paginate/Paginate";
 import AllApisPath from "../../Apis/AllApisPath";
 import Action from "../../components/action/Action";
 import paginate from "../../util/paginate";
+import ActionMobile from "../../components/action-mobile/ActionMobile";
 
 const Series = () => {
   const { discover, trending } = AllApisPath;
   const [page, setPage] = useState(1);
   const [genderId, setGenderId] = useState(null);
-  const [title, setTitle] = useState("Tous les films");
+  const [title, setTitle] = useState("Toutes les séries");
   return (
     <div>
       <Banner
@@ -34,7 +35,16 @@ const Series = () => {
           />
         </div>
         <div className="container">
-          <Title titre={title} />
+          <div className="container__title">
+            <Title titre={title} />
+            <ActionMobile
+              topic="tv"
+              manipulate={(name, id) => {
+                setTitle(name);
+                setGenderId(id);
+              }}
+            />
+          </div>
           <Container url={discover("tv", page, genderId)} />
           <Paginate
             count={500}
