@@ -33,6 +33,7 @@ const Details = () => {
     title,
     poster_path,
     profile_path,
+    backdrop_path,
     original_title,
     overview,
     budget,
@@ -46,51 +47,57 @@ const Details = () => {
     vote.push(i);
   }
   return (
-    <div className="banner-detail">
-      <BannerElement image={poster_path || profile_path} />
-      <div className="banner-detail__overlay"></div>
-      <div className="banner-detail__text">
-        <div className="detail">
-          <div className="movie">
-            <img src={linkImage + detail.poster_path} alt="" />
-          </div>
-          <div className="description">
-            <div>
-              <h3>{title}</h3>
+    <>
+      <div className="banner-detail">
+        <BannerElement image={backdrop_path || profile_path} />
+        <div className="banner-detail__overlay"></div>
+        <div className="banner-detail__text">
+          <div className="detail">
+            <div className="movie">
+              <img src={linkImage + detail.poster_path} alt="" />
             </div>
+            <div className="description">
+              <h3>{title || "titre non fourni"}</h3>
 
-            <p>{overview}</p>
-            <p>
-              <span>Title d'origine</span> : {`${original_title}`}
-            </p>
-            <p>
-              <span>Budget</span> : {`${budget}$`}
-            </p>
-            <p>
-              <span>revenu</span> : {`${revenue}$`}
-            </p>
-            <p>
-              <span>
-                {vote.map((item) => {
-                  return <StarIcon />;
-                })}
-                {vote_average > vote.length && <StarHalfIcon />}
-              </span>
-            </p>
+              <p>{overview || "description indisponible"}</p>
+              <p>
+                <span>Title d'origine</span> :{" "}
+                {original_title ? `${original_title}` : "donnée indisponible"}
+              </p>
+              <p>
+                <span>Budget</span> :{" "}
+                {budget ? `${budget}$` : "donnée indisponible"}
+              </p>
+              <p>
+                <span>revenu</span> :{" "}
+                {revenue ? `${revenue}$` : "donnée indisponible"}
+              </p>
+              <p>
+                <span>
+                  {vote.map((item) => {
+                    return <StarIcon />;
+                  })}
+                  {vote_average > vote.length && <StarHalfIcon />}
+                </span>
+              </p>
+            </div>
           </div>
-        </div>
-        <div className="actor">
-          <h2>Acteurs et actrices</h2>
-          <Container url={actors(topic, id)} limit={5} />
-          <Paginate count={4} />
-        </div>
-        <div className="similaire">
-          <h2>{topic === "movie" ? "Films" : "Séries"} similaires</h2>
-          <Container url={similar(topic, id, 1)} limit={5} />
-          <Paginate count={4} />
         </div>
       </div>
-    </div>
+      <div className="content-detail">
+        <div className="container-detail">
+          <div className="actor">
+            <h2>Acteurs principaux</h2>
+            <Container url={actors(topic, id)} limit={10} />
+          </div>
+          <div className="similaire">
+            <h2>{topic === "movie" ? "Films" : "Séries"} similaires</h2>
+            <Container url={similar(topic, id, 1)} limit={10} />
+            <Paginate count={10} />
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 
