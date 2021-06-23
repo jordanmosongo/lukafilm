@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import Pagination from "@material-ui/lab/Pagination";
 import { makeStyles } from "@material-ui/core/styles";
+import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
+import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import "./paginate.scss";
 
 const useStyles = makeStyles((theme) => ({
@@ -12,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Paginate = (props) => {
+  const [page, setPage] = useState(1);
   const classes = useStyles();
   const handlePaginate = (event) => {
     let pageValue;
@@ -27,12 +30,29 @@ const Paginate = (props) => {
   };
   return (
     <div className="groupPageButton">
-      <div className={classes.root}>
+      <div className={classes.root} id="pagination">
         <Pagination
           count={props.count}
           variant="outlined"
           shape="rounded"
           onChange={handlePaginate}
+        />
+      </div>
+      <div className="pages">
+        <ArrowBackIosIcon
+          className="page-icon"
+          onClick={() => {
+            setPage((page) => (page > 1 ? page - 1 : 1));
+            props.paginateFromChild(page);
+          }}
+        />
+        <span>{`page ${page}/500`}</span>
+        <ArrowForwardIosIcon
+          className="page-icon"
+          onClick={() => {
+            setPage((page) => (page < 500 ? page + 1 : 500));
+            props.paginateFromChild(page);
+          }}
         />
       </div>
     </div>

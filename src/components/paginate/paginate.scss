@@ -1,14 +1,15 @@
 @import "../../App.scss";
 .groupPageButton {
-  margin: 20px 0;
+  margin: auto;
+  padding: 20px;
+
   div {
     color: $blueColor;
   }
   button {
     @include bouton(transparent, $blueColor);
     border: 1px solid $blueColor;
-    padding-top: 4px;
-    padding-bottom: 4px;
+    padding: 4px unset;
     margin: 0 10px;
     &:hover {
       @include boutonHover($blueColor, $whiteColor);
@@ -17,6 +18,22 @@
       border: 1px solid $blueColor;
     }
   }
-  margin: auto;
-  padding: 20px;
+  @media (min-width: 541px) {
+    .pages {
+      display: none;
+    }
+  }
+  @media (max-width: 540px) {
+    #pagination {
+      display: none;
+    }
+    .pages {
+      span {
+        font-size: 20px;
+        margin: 0 10px;
+        position: relative;
+        top: -5px;
+      }
+    }
+  }
 }
