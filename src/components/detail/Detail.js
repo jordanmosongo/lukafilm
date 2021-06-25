@@ -1,19 +1,28 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import "./detail.scss";
-const Detail = ({ id }) => {
+
+const Detail = (props) => {
+  const { id } = props;
   const history = useHistory();
   const handleDetail = () => {
-    history.push(`${window.location.pathname}/${id}`);
+    const currentUrl = window.location.pathname;
+    if (currentUrl === "/") {
+      props.handleDetailFromChild();
+    } else {
+      history.push(`${currentUrl}/${id}`);
+    }
   };
   return (
     <div className="movie-card__effect">
       <div className="movie-card__over-effect"></div>
       <div className="movie-card__over-content">
-        <button data-aos="fade-left" onClick={handleDetail}>
-          View detail
+        <button data-aos="fade-right" onClick={handleDetail}>
+          voir détail
         </button>
-        <button data-aos="fade-right">View detail</button>
+        {window.location.pathname === "/" && (
+          <button data-aos="fade-left">en voir plus</button>
+        )}
       </div>
     </div>
   );
