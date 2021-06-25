@@ -2,35 +2,24 @@ import { useState, useEffect } from "react";
 import AllApisPath from "../Apis/AllApisPath";
 
 const getTopic = () => {
-  let topic;
-  let routeUrl = window.location.pathname;
-  switch (routeUrl) {
-    case "/":
-      topic = "movie";
-      break;
+  switch (window.location.pathname) {
     case "/films":
-      topic = "movie";
-      break;
+      return "movie";
     case "/series":
-      topic = "tv";
-      break;
+      return "tv";
     case "/acteurs":
-      topic = "actors";
-      break;
+      return "person";
     default:
-      break;
+      return "movie";
   }
-  return topic;
 };
 const useSearch = (seuil, entryValue) => {
   const [moviesOrSeries, setMoviesOrSeries] = useState([]);
   const [data, setData] = useState([]);
-  const [topic, setTopic] = useState("movie");
   const [limitInf, setLimitInf] = useState(1);
   const [limitSup, setLimitSup] = useState(50);
   let arr = [];
   const { search } = AllApisPath;
-  let topicc = getTopic();
 
   if (seuil > 1) {
     setLimitInf((limitInf) => limitInf + 49);
@@ -38,9 +27,8 @@ const useSearch = (seuil, entryValue) => {
   }
 
   useEffect(() => {
-    let url = `${search(topicc, "popular")}`;
     for (let page = limitInf; page <= limitSup; page++) {
-      fetch(`${search(topic, "popular") + page}`)
+      fetch(`${search(getTopic(), "popular") + page}`)
         .then((data) => {
           return data.json();
         })
