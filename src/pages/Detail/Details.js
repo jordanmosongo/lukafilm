@@ -6,6 +6,7 @@ import Container from "../../components/container/Container";
 import StarIcon from "@material-ui/icons/Star";
 import StarHalfIcon from "@material-ui/icons/StarHalf";
 import Paginate from "../../components/paginate/Paginate";
+import paginate from "../../util/paginate";
 
 const linkImage = "https://image.tmdb.org/t/p/w500";
 
@@ -31,6 +32,7 @@ const Details = () => {
   const { details, similar, actors } = AllApisPath;
   const { detail } = useDetail(details(topic, id));
   const [limit, setLimit] = useState(10);
+  const [page, setPage] = useState(1);
 
   const {
     title,
@@ -120,8 +122,13 @@ const Details = () => {
           {topic !== "person" && (
             <div className="similaire">
               <h2>{topic === "movie" ? "Films" : "Séries"} similaires</h2>
-              <Container url={similar(topic, id, 1)} />
-              <Paginate count={10} />
+              <Container url={similar(topic, id, page)} />
+              <Paginate
+                count={3}
+                paginateFromChild={(pageValue) =>
+                  setPage(paginate(pageValue, page))
+                }
+              />
             </div>
           )}
         </div>
