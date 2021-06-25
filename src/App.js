@@ -30,7 +30,12 @@ function App() {
             <Route path="/series/:id" component={Details} />
           </Switch>
         </Route>
-        <Route path="/acteurs" component={Acteurs}></Route>
+        <Route path="/acteurs" component={Acteurs}>
+          <Switch>
+            <Route exact path="/acteurs" component={Acteurs} />
+            <Route path="/acteurs/:id" component={Details} />
+          </Switch>
+        </Route>
       </Switch>
       <Footer />
     </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./detail.scss";
 import AllApisPath from "../../Apis/AllApisPath";
 import useDetail from "../../Hooks/useDetail";
@@ -20,7 +20,9 @@ const getId = () => {
   const arr = window.location.pathname.split("/");
   return {
     id: arr[arr.length - 1],
-    topic: `${arr[1] === "films" ? "movie" : "tv"}`,
+    topic: `${
+      arr[1] === "films" ? "movie" : arr[1] === "series" ? "tv" : "person"
+    }`,
   };
 };
 
@@ -28,9 +30,12 @@ const Details = () => {
   const { id, topic } = getId();
   const { details, similar, actors } = AllApisPath;
   const { detail } = useDetail(details(topic, id));
+  const [limit, setLimit] = useState(10);
 
   const {
     title,
+    name,
+    biography,
     poster_path,
     profile_path,
     backdrop_path,
@@ -54,32 +59,38 @@ const Details = () => {
         <div className="banner-detail__text">
           <div className="detail">
             <div className="movie">
-              <img src={linkImage + detail.poster_path} alt="" />
+              <img src={linkImage + (poster_path || profile_path)} alt="" />
             </div>
             <div className="description">
-              <h3>{title || "titre non fourni"}</h3>
+              <h3>{title || name || "titre non fourni"}</h3>
 
-              <p>{overview || "description indisponible"}</p>
-              <p>
-                <span>Title d'origine</span> :{" "}
-                {original_title ? `${original_title}` : "donnée indisponible"}
-              </p>
-              <p>
-                <span>Budget</span> :{" "}
-                {budget ? `${budget}$` : "donnée indisponible"}
-              </p>
-              <p>
-                <span>revenu</span> :{" "}
-                {revenue ? `${revenue}$` : "donnée indisponible"}
-              </p>
-              <p>
-                <span>
-                  {vote.map((item) => {
-                    return <StarIcon />;
-                  })}
-                  {vote_average > vote.length && <StarHalfIcon />}
-                </span>
-              </p>
+              <p>{overview || biography || "description indisponible"}</p>
+              {topic !== "person" && (
+                <>
+                  <p>
+                    <span>Title d'origine</span> :{" "}
+                    {original_title
+                      ? `${original_title}`
+                      : "donnée indisponible"}
+                  </p>
+                  <p>
+                    <span>Budget</span> :{" "}
+                    {budget ? `${budget}$` : "donnée indisponible"}
+                  </p>
+                  <p>
+                    <span>revenu</span> :{" "}
+                    {revenue ? `${revenue}$` : "donnée indisponible"}
+                  </p>
+                  <p>
+                    <span>
+                      {vote.map((item) => {
+                        return <StarIcon />;
+                      })}
+                      {vote_average > vote.length && <StarHalfIcon />}
+                    </span>
+                  </p>
+                </>
+              )}
             </div>
           </div>
         </div>
@@ -87,14 +98,32 @@ const Details = () => {
       <div className="content-detail">
         <div className="container-detail">
           <div className="actor">
-            <h2>Acteurs principaux</h2>
-            <Container url={actors(topic, id)} limit={10} />
+            <h2>{`${
+              topic === "person"
+                ? "Quelques réalisationss"
+                : "Acteurs principaux"
+            }`}</h2>
+            <Container url={actors(topic, id)} limit={limit} />
+            <div className="container-detail__action">
+              {limit > 10 && (
+                <button onClick={() => setLimit((limit) => limit - 5)}>
+                  Voir moins
+                </button>
+              )}
+              {limit <= 40 && (
+                <button onClick={() => setLimit((limit) => limit + 5)}>
+                  Voir plus
+                </button>
+              )}
+            </div>
           </div>
-          <div className="similaire">
-            <h2>{topic === "movie" ? "Films" : "Séries"} similaires</h2>
-            <Container url={similar(topic, id, 1)} limit={10} />
-            <Paginate count={10} />
-          </div>
+          {topic !== "person" && (
+            <div className="similaire">
+              <h2>{topic === "movie" ? "Films" : "Séries"} similaires</h2>
+              <Container url={similar(topic, id, 1)} />
+              <Paginate count={10} />
+            </div>
+          )}
         </div>
       </div>
     </>

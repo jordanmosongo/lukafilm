@@ -9,7 +9,6 @@ const AllApisPath = {
   },
   discover: (topic, page, genderId) => {
     if (genderId !== null) {
-      console.log(genderId);
       return `https://api.themoviedb.org/3/discover/${topic}?api_key=${apiKey}&page=${page}&with_genres=${genderId}`;
     }
     return `https://api.themoviedb.org/3/discover/${topic}?api_key=${apiKey}&page=${page}`;

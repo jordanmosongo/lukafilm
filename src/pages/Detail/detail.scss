@@ -36,10 +36,10 @@
       align-items: flex-start;
       width: 100%;
       .movie {
-        width: 50%;
+        width: 40%;
       }
       .description {
-        width: 50%;
+        width: 60%;
         @include flexOne(column);
         align-items: flex-start;
         h3 {
@@ -97,6 +97,13 @@
     margin: auto;
     .actor {
       @include flexOne(column);
+      .container-detail__action {
+        padding: 30px 0;
+        button {
+          @include bouton(transparent, $blueColor);
+          margin: 5px;
+        }
+      }
     }
     .similaire {
       @include flexOne(column);

@@ -1,0 +1,15 @@
+@import "../../App.scss";
+.actors {
+  width: 100%;
+  background: linear-gradient(#111, 50%, $sectionColor);
+  .container {
+    padding: 40px 0;
+    width: 90%;
+    margin: auto;
+    margin-top: 10vh;
+    @include flexOne(column);
+    h2 {
+      @include title(#fff);
+    }
+  }
+}
