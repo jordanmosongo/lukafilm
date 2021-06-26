@@ -3,13 +3,14 @@ import { useHistory } from "react-router-dom";
 import "./detail.scss";
 
 const Detail = (props) => {
-  const { id } = props;
+  const { id, detailInModal } = props;
   const history = useHistory();
   const handleDetail = () => {
     const currentUrl = window.location.pathname;
-    if (currentUrl === "/") {
+    if (currentUrl === "/" || detailInModal) {
       props.handleDetailFromChild();
     } else {
+      console.log(window.location.pathname);
       history.push(`${currentUrl}/${id}`);
     }
   };

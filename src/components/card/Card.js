@@ -6,7 +6,7 @@ import DetailModal from "../modal/DetailModal";
 
 const linkImage = "https://image.tmdb.org/t/p/w300";
 
-const Card = ({ movie }) => {
+const Card = ({ movie, detailInModal }) => {
   const { poster_path, id } = movie;
   const [detail, setdetail] = useState(false);
   const [detailModal, setDetailModal] = useState(false);
@@ -22,6 +22,7 @@ const Card = ({ movie }) => {
       {detail && (
         <Detail
           id={id}
+          detailInModal={detailInModal}
           handleDetailFromChild={() => setDetailModal(!detailModal)}
         />
       )}

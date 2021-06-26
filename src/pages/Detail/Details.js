@@ -105,7 +105,11 @@ const Details = () => {
                 ? "Quelques réalisationss"
                 : "Acteurs principaux"
             }`}</h2>
-            <Container url={actors(topic, id)} limit={limit} />
+            <Container
+              url={actors(topic, id)}
+              limit={limit}
+              detailModal={true}
+            />
             <div className="container-detail__action">
               {limit > 10 && (
                 <button onClick={() => setLimit((limit) => limit - 5)}>

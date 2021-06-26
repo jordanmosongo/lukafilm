@@ -9,7 +9,16 @@ import useStyles from "../../util/modal.configuration";
 const linkImage = "https://image.tmdb.org/t/p/w300";
 
 const DetailModal = (props) => {
-  const { poster_path, overview, title } = props.movie;
+  const {
+    poster_path,
+    profile_path,
+    overview,
+    biography,
+    title,
+    name,
+    original_title,
+    revenue,
+  } = props.movie;
   const { modal } = useStyles();
   const { stateValue } = props;
   return (
@@ -34,7 +43,27 @@ const DetailModal = (props) => {
                 className="close-modal"
                 onClick={() => props.closeFromParent()}
               />
-              <h2>{title}</h2>
+              <h2>{title || name}</h2>
+              <div className="detail">
+                <div className="movie">
+                  <img src={linkImage + (poster_path || profile_path)} alt="" />
+                </div>
+                <div className="description">
+                  <p>{overview || biography || "description indisponible"}</p>
+                  <>
+                    <p>
+                      <span>Title d'origine</span> :{" "}
+                      {original_title
+                        ? `${original_title}`
+                        : "donnée indisponible"}
+                    </p>
+                    <p>
+                      <span>revenu</span> :{" "}
+                      {revenue ? `${revenue}$` : "donnée indisponible"}
+                    </p>
+                  </>
+                </div>
+              </div>
             </div>
           </div>
         </Fade>
