@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import "./detail.scss";
+import { topicContext } from "../../pages/Home/Home";
 
 const Detail = (props) => {
+  const topic = useContext(topicContext);
   const { id, detailInModal } = props;
   const history = useHistory();
   const handleDetail = () => {
@@ -22,7 +24,15 @@ const Detail = (props) => {
           voir détail
         </button>
         {window.location.pathname === "/" && (
-          <button data-aos="fade-left">en voir plus</button>
+          <button
+            data-aos="fade-left"
+            onClick={() =>
+              history.push(`${topic === "movie" ? "films" : "series"}/${id}`)
+            }
+          >
+            {" "}
+            en voir plus
+          </button>
         )}
       </div>
     </div>
