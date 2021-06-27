@@ -8,17 +8,14 @@ const search = (topic, maxPageNumber) => {
         return data.json();
       })
       .then(({ results }) => {
-        // console.log(results);
         if (results) {
           for (let result of results) {
             arrayResults.push(result);
           }
-          console.log(arrayResults);
         }
       })
       .catch((err) => console.log(err));
   }
-  console.log(arrayResults);
   return arrayResults;
 };
 export default search;

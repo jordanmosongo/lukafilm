@@ -29,7 +29,10 @@ const Card = ({ movie, detailInModal }) => {
       <DetailModal
         stateValue={detailModal}
         movie={movie}
-        closeFromParent={() => setDetailModal(!detailModal)}
+        closeFromParent={() => {
+          setDetailModal(!detailModal);
+          setdetail(false);
+        }}
       />
     </div>
   );

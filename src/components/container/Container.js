@@ -1,11 +1,12 @@
 import React from "react";
 import Card from "../../components/card/Card";
 import useMovieOrSerie from "../../Hooks/useMovieOrSerie";
-//import Loader from "./Loader";
+import Loader from "../loader/Loader";
 import "./Container.scss";
 
 const Container = ({ url, limit, detailModal }) => {
-  const { moviesOrSeries } = useMovieOrSerie(url);
+  const { moviesOrSeries, loading } = useMovieOrSerie(url);
+  if (loading) return <Loader />;
   return (
     <div className="movie-card-container">
       {limit === null || undefined

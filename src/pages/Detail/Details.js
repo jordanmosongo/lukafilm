@@ -46,9 +46,9 @@ const Details = () => {
     budget,
     revenue,
     vote_average,
-    production_companies,
+    release_date,
   } = detail;
-  console.log(production_companies);
+
   const vote = [];
   for (let i = 1; i < Math.floor(vote_average); i++) {
     vote.push(i);
@@ -82,6 +82,10 @@ const Details = () => {
                   <p>
                     <span>revenu</span> :{" "}
                     {revenue ? `${revenue}$` : "donnée indisponible"}
+                  </p>
+                  <p>
+                    <span>release date</span> :{" "}
+                    {release_date ? `${release_date}` : "donnée indisponible"}
                   </p>
                   <p>
                     <span>

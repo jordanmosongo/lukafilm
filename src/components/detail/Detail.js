@@ -3,18 +3,25 @@ import { useHistory } from "react-router-dom";
 import "./detail.scss";
 import { topicContext } from "../../pages/Home/Home";
 
+const setUrl = (pathname, id) => {
+  const arr = pathname.split("/");
+  if (arr.length === 2) {
+    return `${pathname}/${id}`;
+  } else {
+    arr.pop();
+    return `${arr.join("/")}/${id}`;
+  }
+};
+
 const Detail = (props) => {
   const topic = useContext(topicContext);
   const { id, detailInModal } = props;
   const history = useHistory();
+  const currentUrl = window.location.pathname;
   const handleDetail = () => {
-    const currentUrl = window.location.pathname;
-    if (currentUrl === "/" || detailInModal) {
-      props.handleDetailFromChild();
-    } else {
-      console.log(window.location.pathname);
-      history.push(`${currentUrl}/${id}`);
-    }
+    currentUrl === "/" || detailInModal
+      ? props.handleDetailFromChild()
+      : history.push(setUrl(currentUrl, id));
   };
   return (
     <div className="movie-card__effect">
@@ -23,7 +30,7 @@ const Detail = (props) => {
         <button data-aos="fade-right" onClick={handleDetail}>
           voir détail
         </button>
-        {window.location.pathname === "/" && (
+        {currentUrl === "/" && (
           <button
             data-aos="fade-left"
             onClick={() =>

@@ -13,11 +13,12 @@ const DetailModal = (props) => {
     poster_path,
     profile_path,
     overview,
-    biography,
     title,
     name,
     original_title,
-    revenue,
+    original_name,
+    character,
+    release_date,
   } = props.movie;
   const { modal } = useStyles();
   const { stateValue } = props;
@@ -49,19 +50,36 @@ const DetailModal = (props) => {
                   <img src={linkImage + (poster_path || profile_path)} alt="" />
                 </div>
                 <div className="description">
-                  <p>{overview || biography || "description indisponible"}</p>
-                  <>
-                    <p>
-                      <span>Title d'origine</span> :{" "}
-                      {original_title
-                        ? `${original_title}`
-                        : "donnée indisponible"}
-                    </p>
-                    <p>
-                      <span>revenu</span> :{" "}
-                      {revenue ? `${revenue}$` : "donnée indisponible"}
-                    </p>
-                  </>
+                  {!character || !original_name ? (
+                    <>
+                      <p>{overview || "donnée indisponible"}</p>
+                      <p>
+                        <span>Title d'origine</span> :{" "}
+                        {original_title
+                          ? `${original_title}`
+                          : "donnée indisponible"}
+                      </p>
+                      <p>
+                        <span>release date</span> :{" "}
+                        {release_date
+                          ? `${release_date}`
+                          : "donnée indisponible"}
+                      </p>
+                    </>
+                  ) : (
+                    <>
+                      <p>
+                        <span>Vrai nom</span> :{" "}
+                        {original_name
+                          ? `${original_name}`
+                          : "donnée indisponible"}
+                      </p>
+                      <p>
+                        <span>rôle</span> :{" "}
+                        {character ? `${character}` : "donnée indisponible"}
+                      </p>
+                    </>
+                  )}
                 </div>
               </div>
             </div>

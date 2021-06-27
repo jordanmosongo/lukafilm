@@ -1,8 +1,6 @@
 @import "../../App.scss";
 .detail-modal {
   position: "relative";
-  width: "60%";
-  height: "80%";
   @include flexOne(column);
   .image-blur-modal {
     position: absolute;
