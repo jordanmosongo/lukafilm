@@ -28,6 +28,9 @@ const AllApisPath = {
   search: (topic, categorie) => {
     return `https://api.themoviedb.org/3/${topic}/${categorie}?api_key=${apiKey}&language=fr&page=`;
   },
+  multiSearch: (query) => {
+    return `https://api.themoviedb.org/3/search/multi?api_key=c802217348f2b02deda6d2bd90464776&language=en-US&query=${query}&page=1&include_adult=false`;
+  },
 };
 
 export default AllApisPath;

@@ -5,7 +5,6 @@ import Trending from "../../components/trending/Treding";
 import Title from "../../components/title/Title";
 import { ExpandLess, ExpandMore } from "@material-ui/icons";
 import "./home.scss";
-import Loader from "../../components/loader/Loader";
 
 const reducer = (state, action) => {
   switch (action) {
