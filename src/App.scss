@@ -13,8 +13,8 @@ $blackColor: #0e0e0e;
 $robotoFamily: Roboto;
 $albaFamily: Alba;
 $newColor: #0b131b;
-$blueColor: #1987f3;
-//$blueColor: #ffad00;
+//$blueColor: #1987f3;
+$blueColor: #ffad00;
 @mixin title($color) {
   color: $color;
   font-size: 35px;
@@ -40,6 +40,15 @@ $blueColor: #1987f3;
     right: 0;
     background-color: $blueColor;
   }
+  @media (max-width: 540px) {
+    font-size: 20px;
+    &:before {
+      top: 30px;
+    }
+    &:after {
+      top: 32px;
+    }
+  }
 }
 @mixin flexOne($direction) {
   display: flex;
@@ -57,6 +66,11 @@ $blueColor: #1987f3;
   border: 1px solid $fontColor;
   outline: none;
   cursor: pointer;
+  @media (max-width: 540px) {
+    font-size: 14px;
+    padding: 4px 10px;
+    border-radius: 2px;
+  }
 }
 @mixin boutonHover($bgColor, $fontColor) {
   background-color: $bgColor;

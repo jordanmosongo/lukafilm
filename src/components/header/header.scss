@@ -28,6 +28,10 @@
       margin-left: 10px;
       font-size: 35px;
     }
+    @media (max-width: 768px) {
+      margin-left: 5px;
+      font-size: 30px;
+    }
   }
   .header-container {
     display: flex;
@@ -55,6 +59,9 @@
       .searchIcon {
         font-size: 35px;
         font-weight: bolder;
+        @media (max-width: 540px) {
+          font-size: 25px;
+        }
       }
     }
     @media (max-width: 768px) {
@@ -67,7 +74,7 @@
   .menu {
     margin-right: 30px;
     margin-left: 30px;
-    font-size: 40px;
+    font-size: 35px;
     font-weight: bolder;
     color: #ffffff;
     cursor: pointer;
@@ -75,6 +82,11 @@
       color: $blueColor;
       transform: scale(1.1);
       transition: 0.4s ease-in-out;
+    }
+    @media (max-width: 540px) {
+      margin-right: 10px;
+      margin-left: 30px;
+      font-size: 25px;
     }
   }
 }

@@ -20,7 +20,6 @@
     left: 0;
     bottom: 0;
     background-color: $sectionColor;
-    //background: linear-gradient(#111, 30%, $sectionColor);
     opacity: 0.9;
     display: flex;
   }
@@ -46,27 +45,29 @@
         color: $blueColor;
       }
       @media (max-width: 768px) {
-        font-size: 80px;
+        font-size: 60px;
       }
       @media (max-width: 540px) {
-        font-size: 60px;
+        font-size: 45px;
       }
     }
     p {
       color: #ffffff;
       position: relative;
       top: -80px;
-      font-size: 60px;
+      font-size: 40px;
       line-height: 60px;
       font-family: Roboto;
       width: 50%;
       @media (max-width: 768px) {
-        width: 100%;
-        line-height: 70px;
+        width: 90%;
+        font-size: 35px;
+        line-height: 40px;
       }
       @media (max-width: 540px) {
-        font-size: 42px;
-        line-height: 50px;
+        font-size: 25px;
+        line-height: 30px;
+        margin-top: 40px;
       }
     }
   }

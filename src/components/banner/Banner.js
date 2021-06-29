@@ -4,8 +4,8 @@ import { useState } from "react";
 
 const Banner = () => {
   const arrayOfText = [
-    "pour une recherche optimale des films et séries",
-    "retrouvez toutes les informations y relatives",
+    "Une application qui vous falicite la recherche des films, séries et acteurs",
+    "Son champs est restreint à des informations y relatives qu'elle vous fournit",
   ];
   const [text, settext] = useState(arrayOfText[0]);
   const [changeState, setchangeState] = useState(false);
@@ -14,12 +14,12 @@ const Banner = () => {
       setTimeout(() => {
         settext(arrayOfText[1]);
         setchangeState(!changeState);
-      }, 5000);
+      }, 7000);
     } else {
       setTimeout(() => {
         settext(arrayOfText[0]);
         setchangeState(!changeState);
-      }, 5000);
+      }, 7000);
     }
   })();
   return (
