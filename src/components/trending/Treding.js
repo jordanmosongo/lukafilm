@@ -26,7 +26,6 @@ const CardSlick = ({ movie }) => {
         </ul>
         <div className="details">
           <h3>{movie.title}</h3>
-          <p>Une legere description</p>
         </div>
       </div>
     </div>
@@ -37,15 +36,7 @@ const settings = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: +`${
-      window.innerWidth <= 540
-        ? 1
-        : window.innerWidth <= 780
-        ? 2
-        : window.innerWidth <= 1280
-        ? 3
-        : 4
-    }`,
+    slidesToShow: +`${window.innerWidth <= 780 ? 3 : 4}`,
     slidesToScroll: 1,
     cssEase: "linear",
     autoplay: true,
@@ -55,7 +46,7 @@ const Trending = ({ topic }) => {
   console.log("from trending", topic);
   console.log(window.innerWidth);
   const { trending } = AllApisPath;
-  const { moviesOrSeries, loading } = useMovieOrSerie(trending(topic));
+  const { moviesOrSeries } = useMovieOrSerie(trending(topic));
 
   return (
     <div className="collection">

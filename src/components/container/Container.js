@@ -4,7 +4,7 @@ import useMovieOrSerie from "../../Hooks/useMovieOrSerie";
 import Loader from "../loader/Loader";
 import "./Container.scss";
 
-const Container = ({ url, limit, detailModal }) => {
+const Container = ({ url, limit, detailModal, topic }) => {
   const { moviesOrSeries, loading } = useMovieOrSerie(url);
   if (loading) return <Loader />;
   return (
@@ -14,7 +14,9 @@ const Container = ({ url, limit, detailModal }) => {
             return <Card movie={movie} detailModal={detailModal} />;
           })
         : moviesOrSeries.slice(0, limit).map((movie) => {
-            return <Card movie={movie} detailInModal={detailModal} />;
+            return (
+              <Card movie={movie} detailInModal={detailModal} topic={topic} />
+            );
           })}
     </div>
   );

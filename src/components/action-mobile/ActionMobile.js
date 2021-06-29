@@ -25,7 +25,7 @@ const ActionMobile = (props) => {
         </span>
       </button>
       {querySelect && (
-        <ul className="select-categorie" data-aos="zoom-in">
+        <ul className="select-categorie" data-aos="fade-left">
           {genders.map(({ name, id }) => {
             return (
               <li

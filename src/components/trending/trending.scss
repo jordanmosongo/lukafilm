@@ -1,10 +1,8 @@
 @import "../../App.scss";
 .collection {
   background: linear-gradient(#111, 50%, $sectionColor);
-  height: 40rem;
   width: 100%;
   @include flexOne(column);
-  padding: 20px 0;
   .collection__container {
     width: 95%;
     height: 100%;
@@ -13,6 +11,7 @@
     justify-content: space-around;
     h2 {
       @include title(#fff);
+      margin-top: 0;
     }
     .collection__container__image {
       width: 90%;
@@ -82,12 +81,11 @@
             top: 460px;
             left: 0;
             width: 100%;
-
             height: 80px;
-
             padding: 10px;
             transition: 0.6s;
             h3 {
+              position: relative;
               color: $blueColor;
             }
           }
@@ -115,8 +113,21 @@
               }
             }
           }
+          @media (max-width: 768px) {
+            height: 20rem;
+            border-radius: 5px;
+          }
+          @media (max-width: 540px) {
+            height: 12rem;
+          }
         }
       }
+      @media (max-width: 540px) {
+        padding: 10px 0;
+      }
     }
+  }
+  @media (max-width: 540px) {
+    margin-top: -25px;
   }
 }

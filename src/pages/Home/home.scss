@@ -81,5 +81,13 @@
         background-color: $blueColor;
       }
     }
+    @media (max-width: 540px) {
+      height: 70px;
+      width: 200px;
+      top: 50px;
+      li {
+        font-size: 20px;
+      }
+    }
   }
 }

@@ -41,6 +41,12 @@
       @include flexOne(row);
       align-items: flex-start;
       width: 90%;
+      // .detail__movie {
+      //   border: 2px solid white;
+      //   @media (max-width: 768px) {
+      //     display: none;
+      //   }
+      // }
       .description {
         @include flexOne(column);
         align-items: flex-start;
@@ -64,6 +70,9 @@
           }
           p {
             font-size: 18px;
+          }
+          .movie {
+            display: none !important;
           }
         }
       }

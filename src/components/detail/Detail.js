@@ -18,6 +18,7 @@ const Detail = (props) => {
   const { id, detailInModal } = props;
   const history = useHistory();
   const currentUrl = window.location.pathname;
+
   const handleDetail = () => {
     currentUrl === "/" || detailInModal
       ? props.handleDetailFromChild()
@@ -30,6 +31,7 @@ const Detail = (props) => {
         <button data-aos="fade-right" onClick={handleDetail}>
           voir détail
         </button>
+
         {currentUrl === "/" && (
           <button
             data-aos="fade-left"

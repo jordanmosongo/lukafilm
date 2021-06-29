@@ -6,7 +6,7 @@ import DetailModal from "../modal/DetailModal";
 
 const linkImage = "https://image.tmdb.org/t/p/w300";
 
-const Card = ({ movie, detailInModal }) => {
+const Card = ({ movie, detailInModal, topic }) => {
   const { poster_path, id } = movie;
   const [detail, setdetail] = useState(false);
   const [detailModal, setDetailModal] = useState(false);

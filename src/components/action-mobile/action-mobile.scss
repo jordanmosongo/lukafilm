@@ -40,11 +40,11 @@
     }
   }
   .select-categorie {
-    width: 300px;
+    width: 250px;
     position: absolute;
     right: 0;
     background-color: #13202b;
-    top: 60px;
+    top: 55px;
     overflow-x: hidden;
     @include flexOne(column);
     align-items: flex-start;
@@ -53,7 +53,7 @@
     li {
       margin-left: 0;
       font-family: $robotoFamily;
-      font-size: 28px;
+      font-size: 20px;
       color: #fff;
       list-style: none;
       left: 0;

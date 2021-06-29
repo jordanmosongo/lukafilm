@@ -106,13 +106,14 @@ const Details = () => {
           <div className="actor">
             <h2>{`${
               topic === "person"
-                ? "Quelques réalisationss"
+                ? "Quelques réalisations"
                 : "Acteurs principaux"
             }`}</h2>
             <Container
               url={actors(topic, id)}
               limit={limit}
               detailModal={true}
+              topic={topic}
             />
             <div className="container-detail__action">
               {limit > 10 && (

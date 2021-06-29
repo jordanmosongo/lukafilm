@@ -45,6 +45,12 @@
           color: white;
         }
       }
+      @media (max-width: 540px) {
+        a {
+          font-size: 25px;
+          padding: 10px 0;
+        }
+      }
     }
   }
 }

@@ -46,7 +46,7 @@ const DetailModal = (props) => {
               />
               <h2>{title || name}</h2>
               <div className="detail">
-                <div className="movie">
+                <div className="detail__movie">
                   <img src={linkImage + (poster_path || profile_path)} alt="" />
                 </div>
                 <div className="description">
