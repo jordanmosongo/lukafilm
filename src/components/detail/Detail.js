@@ -31,7 +31,6 @@ const Detail = (props) => {
         <button data-aos="fade-right" onClick={handleDetail}>
           voir détail
         </button>
-
         {currentUrl === "/" && (
           <button
             data-aos="fade-left"

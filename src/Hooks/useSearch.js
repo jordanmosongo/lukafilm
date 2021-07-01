@@ -19,7 +19,7 @@ const useSearch = (entryValue) => {
   const { multiSearch } = AllApisPath;
 
   useEffect(() => {
-    for (let page = 1; page <= 15; page++) {
+    for (let page = 1; page <= 8; page++) {
       fetch(`${multiSearch(getTopic(), entryValue, page)}`)
         .then((data) => {
           return data.json();

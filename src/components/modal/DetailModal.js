@@ -5,8 +5,11 @@ import Fade from "@material-ui/core/Fade";
 import Close from "@material-ui/icons/Close";
 import "./detailModal.scss";
 import useStyles from "../../util/modal.configuration";
+import useDetail from "../../Hooks/useDetail";
+import AllApisPath from "../../Apis/AllApisPath";
 
 const linkImage = "https://image.tmdb.org/t/p/w300";
+const { details } = AllApisPath;
 
 const DetailModal = (props) => {
   const {
@@ -17,9 +20,15 @@ const DetailModal = (props) => {
     name,
     original_title,
     original_name,
+    id,
     character,
     release_date,
   } = props.movie;
+
+  const {
+    detail: { biography },
+  } = useDetail(details("person", id));
+  console.log(biography);
   const { modal } = useStyles();
   const { stateValue } = props;
   return (
@@ -45,38 +54,32 @@ const DetailModal = (props) => {
               />
               <h2>{title || name}</h2>
               <div className="detail">
-                <div className="detail__movie">
-                  <img src={linkImage + (poster_path || profile_path)} alt="" />
-                </div>
+                {!character && (
+                  <div className="detail__movie">
+                    <img
+                      src={linkImage + (poster_path || profile_path)}
+                      alt=""
+                    />
+                  </div>
+                )}
                 <div className="description">
                   {!character || !original_name ? (
                     <>
-                      <p>{overview || "donnée indisponible"}</p>
-                      <p>
-                        <span>Title d'origine</span> :{" "}
-                        {original_title
-                          ? `${original_title}`
-                          : "donnée indisponible"}
-                      </p>
-                      <p>
-                        <span>release date</span> :{" "}
-                        {release_date
-                          ? `${release_date}`
-                          : "donnée indisponible"}
-                      </p>
+                      {overview && <p>{overview}</p>}
+                      {original_title && (
+                        <p>
+                          <span>Title d'origine</span> :{original_title}
+                        </p>
+                      )}
+                      {release_date && (
+                        <p>
+                          <span>Date</span> : {release_date}
+                        </p>
+                      )}
                     </>
                   ) : (
                     <>
-                      <p>
-                        <span>Vrai nom</span> :{" "}
-                        {original_name
-                          ? `${original_name}`
-                          : "donnée indisponible"}
-                      </p>
-                      <p>
-                        <span>rôle</span> :{" "}
-                        {character ? `${character}` : "donnée indisponible"}
-                      </p>
+                      <p>{biography ? `${biography}` : "Aucune biographie"}</p>
                     </>
                   )}
                 </div>
