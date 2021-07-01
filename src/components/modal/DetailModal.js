@@ -37,7 +37,6 @@ const DetailModal = (props) => {
       >
         <Fade in={stateValue}>
           <div className="detail-modal">
-            <div className="back-image-modal"></div>
             <div className="image-blur-modal"></div>
             <div className="content-modal">
               <Close
