@@ -1,0 +1,15 @@
+@import "../../App.scss";
+.tendance {
+  @include flexOne(column);
+  h2 {
+    @include title(#fff);
+  }
+  background: linear-gradient($sectionColor, 50%, #111);
+  .tendance__container {
+    width: 90%;
+    padding: 20px 0;
+    @include flexOne(column);
+    align-items: flex-start;
+    margin-bottom: 30px;
+  }
+}

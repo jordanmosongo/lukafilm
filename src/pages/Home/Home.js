@@ -5,6 +5,7 @@ import Trending from "../../components/trending/Treding";
 import Title from "../../components/title/Title";
 import { ExpandLess, ExpandMore } from "@material-ui/icons";
 import "./home.scss";
+import Upcoming from "../../components/upcoming/Upcoming";
 
 const reducer = (state, action) => {
   switch (action) {
@@ -56,6 +57,7 @@ const Home = () => {
         <Popularity topic={topic} />
       </topicContext.Provider>
       <Trending topic={topic} />
+      <Upcoming topic={topic} />
     </div>
   );
 };

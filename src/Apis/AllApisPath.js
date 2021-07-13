@@ -7,6 +7,12 @@ const AllApisPath = {
     return `
     https://api.themoviedb.org/3/trending/${topic}/week?api_key=${apiKey}`;
   },
+  upcoming: (topic) => {
+    if (topic === "movie") {
+      return `https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=fr&page=10`;
+    }
+    return `https://api.themoviedb.org/3/tv/airing_today?api_key=${apiKey}&language=fr&page=1`;
+  },
   discover: (topic, page, genderId) => {
     if (genderId !== null) {
       return `https://api.themoviedb.org/3/discover/${topic}?api_key=${apiKey}&page=${page}&with_genres=${genderId}`;
