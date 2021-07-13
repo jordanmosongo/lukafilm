@@ -2,36 +2,62 @@
 .footer {
   width: 100%;
   background-color: #0e1b22;
-  @include flexOne(column);
-  justify-content: space-between;
   .footer__copyright {
     width: 90%;
     margin: auto;
-    @include flexOne(column);
+    padding-bottom: 20px;
+    border: 1px solid #0e1b22;
+
+    h3 {
+      color: #fff;
+      font-size: 30px;
+      font-family: $robotoFamily;
+      span {
+        color: $blueColor;
+      }
+      @media (max-width: 540px) {
+        font-size: 20px;
+      }
+    }
     p {
       color: #fff;
       font-size: 22px;
       font-family: $robotoFamily;
       line-height: 30px;
+      margin-top: -15px;
       a {
         margin-top: 5px;
         text-decoration: none;
         color: inherit;
         color: $blueColor;
       }
-    }
-    img {
-      margin-top: 30px;
-      width: 20%;
-    }
-    @media (max-width: 768px) {
-      img {
-        width: 40%;
+      @media (max-width: 540px) {
+        font-size: 16px;
+        line-height: 20px;
       }
     }
-    @media (max-width: 480px) {
-      img {
-        width: 60%;
+    .developpeur {
+      color: #fff;
+      font-family: $robotoFamily;
+      font-size: 22px;
+      display: inline;
+      margin-top: -20px;
+      position: relative;
+      &::after {
+        content: "";
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(75deg, $sectionColor, $blueColor);
+        position: absolute;
+        left: 0;
+        top: -10px;
+      }
+      a {
+        color: $blueColor;
+        text-decoration: none;
+      }
+      @media (max-width: 540px) {
+        font-size: 16px;
       }
     }
   }

@@ -5,14 +5,19 @@ const Footer = () => {
   return (
     <div className="footer">
       <div className="footer__copyright">
-        <img
-          class="tmbd-logo"
-          src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_long_1-8ba2ac31f354005783fab473602c34c3f4fd207150182061e425d366e4f34596.svg"
-          alt="logo the movie data base"
-        ></img>
+        <h3>
+          LUKA<span>FILM</span>
+        </h3>
         <p>
-          Ce produit utilise l'api TMDb <br /> Tous droits réservés &copy;2021
+          Ce produit utilise l'api TMDb mais pas approuvé par cette organisation{" "}
+          <br /> Tous droits réservés &copy;2021
         </p>
+        <div className="developpeur">
+          Développé par{" "}
+          <a href="https://jordanmosongo.netlify.app/" target="_blanc">
+            Jordan Mosongo
+          </a>
+        </div>
       </div>
     </div>
   );
