@@ -14,6 +14,7 @@ const Card = ({ movie, detailInModal }) => {
     <div
       className="movie-card"
       onMouseEnter={() => setdetail(true)}
+      onClick={() => setdetail(true)}
       onMouseLeave={() => setdetail(false)}
     >
       <div className="movie-card__image">

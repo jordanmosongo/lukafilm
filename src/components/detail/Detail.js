@@ -24,6 +24,9 @@ const Detail = (props) => {
       ? props.handleDetailFromChild()
       : history.push(setUrl(currentUrl, id));
   };
+  const seeMore = () => {
+    history.push(`${topic === "movie" ? "films" : "series"}/${id}`);
+  };
   return (
     <div className="movie-card__effect">
       <div className="movie-card__over-effect"></div>
@@ -31,14 +34,8 @@ const Detail = (props) => {
         <button data-aos="fade-right" onClick={handleDetail}>
           voir détail
         </button>
-        {currentUrl === "/" && (
-          <button
-            data-aos="fade-left"
-            onClick={() =>
-              history.push(`${topic === "movie" ? "films" : "series"}/${id}`)
-            }
-          >
-            {" "}
+        {currentUrl !== "/" && (
+          <button data-aos="fade-left" onClick={seeMore}>
             en voir plus
           </button>
         )}

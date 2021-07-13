@@ -36,7 +36,10 @@ const SearchModal = (props) => {
             <div className="content">
               <Close
                 className="close-modal"
-                onClick={() => closeModalFromChild()}
+                onClick={() => {
+                  closeModalFromChild();
+                  setEntryValue("");
+                }}
               />
               <h2>Zone de recherche</h2>
               <div className="results">
