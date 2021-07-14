@@ -43,8 +43,6 @@ const settings = () => {
   };
 };
 const Trending = ({ topic }) => {
-  console.log("from trending", topic);
-  console.log(window.innerWidth);
   const { trending } = AllApisPath;
   const { moviesOrSeries } = useMovieOrSerie(trending(topic));
 

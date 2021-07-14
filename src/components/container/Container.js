@@ -11,7 +11,9 @@ const Container = ({ url, limit, detailModal, topic }) => {
     <div className="movie-card-container">
       {limit === null || undefined
         ? moviesOrSeries.map((movie) => {
-            return <Card movie={movie} detailModal={detailModal} />;
+            return (
+              <Card movie={movie} detailModal={detailModal} topic={topic} />
+            );
           })
         : moviesOrSeries.slice(0, limit).map((movie) => {
             return (
