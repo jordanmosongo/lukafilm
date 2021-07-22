@@ -28,7 +28,6 @@ const DetailModal = (props) => {
   const {
     detail: { biography },
   } = useDetail(details("person", id));
-  console.log(biography);
   const { modal } = useStyles();
   const { stateValue } = props;
   return (

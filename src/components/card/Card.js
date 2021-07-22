@@ -6,10 +6,12 @@ import DetailModal from "../modal/DetailModal";
 
 const linkImage = "https://image.tmdb.org/t/p/w300";
 
-const Card = ({ movie, detailInModal, topic }) => {
+const Card = (props) => {
+  const { movie, detailInModal, topic, isInSearchModal } = props;
   const { poster_path, id, name, character } = movie;
   const [detail, setdetail] = useState(false);
   const [detailModal, setDetailModal] = useState(false);
+
   return (
     <div
       className="movie-card"
@@ -32,7 +34,11 @@ const Card = ({ movie, detailInModal, topic }) => {
           id={id}
           topic={topic}
           detailInModal={detailInModal}
-          handleDetailFromChild={() => setDetailModal(!detailModal)}
+          isInSearchModal={isInSearchModal}
+          handleDetailFromChild={() => {
+            setDetailModal(!detailModal);
+          }}
+          closeSearchModal={() => props.closeSearchModal()}
         />
       )}
       <DetailModal

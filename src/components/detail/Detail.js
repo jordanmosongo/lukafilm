@@ -20,9 +20,12 @@ const Detail = (props) => {
   const currentUrl = window.location.pathname;
 
   const handleDetail = () => {
-    currentUrl === "/" || detailInModal
-      ? props.handleDetailFromChild()
-      : history.push(setUrl(currentUrl, id));
+    if (currentUrl === "/" || detailInModal) {
+      props.handleDetailFromChild();
+    } else {
+      props.isInSearchModal && props.closeSearchModal();
+      history.push(setUrl(currentUrl, id));
+    }
   };
   const seeMore = () => {
     history.push(`${topic === "movie" ? "films" : "series"}/${id}`);

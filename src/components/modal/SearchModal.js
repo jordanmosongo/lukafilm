@@ -65,7 +65,16 @@ const SearchModal = (props) => {
               <div className="results__body">
                 <div className="movie-card-container">
                   {moviesOrSeries.map((movie) => {
-                    return <Card movie={movie} />;
+                    return (
+                      <Card
+                        movie={movie}
+                        isInSearchModal={true}
+                        closeSearchModal={() => {
+                          setEntryValue("");
+                          closeModalFromChild();
+                        }}
+                      />
+                    );
                   })}
                 </div>
               </div>
