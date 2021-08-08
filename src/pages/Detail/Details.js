@@ -40,7 +40,6 @@ const Details = () => {
     backdrop_path,
     original_title,
     overview,
-    budget,
     revenue,
     vote_average,
     release_date,
@@ -72,24 +71,21 @@ const Details = () => {
               <p>{overview || biography || "description indisponible"}</p>
               {topic !== "person" && (
                 <>
-                  <p>
-                    <span>Title d'origine</span> :{" "}
-                    {original_title
-                      ? `${original_title}`
-                      : "donnée indisponible"}
-                  </p>
-                  <p>
-                    <span>Budget</span> :{" "}
-                    {budget ? `${budget}$` : "donnée indisponible"}
-                  </p>
-                  <p>
-                    <span>revenu</span> :{" "}
-                    {revenue ? `${revenue}$` : "donnée indisponible"}
-                  </p>
-                  <p>
-                    <span>release date</span> :{" "}
-                    {release_date ? `${release_date}` : "donnée indisponible"}
-                  </p>
+                  {original_title && (
+                    <p>
+                      <span>Title d'origine</span> :{`${original_title}`}
+                    </p>
+                  )}
+                  {revenue && (
+                    <p>
+                      <span>revenu</span> :{`${revenue}$`}
+                    </p>
+                  )}
+                  {release_date && (
+                    <p>
+                      <span>Date de sortie</span> :{release_date}
+                    </p>
+                  )}
                   <p>
                     <span>
                       {vote.map((item) => {
@@ -117,6 +113,7 @@ const Details = () => {
               limit={limit}
               detailModal={true}
               topic={topic}
+              isActor={topic !== "person"}
             />
             <div className="container-detail__action">
               {limit > 10 && (
@@ -134,7 +131,7 @@ const Details = () => {
           {topic !== "person" && (
             <div className="similaire">
               <h2>{topic === "movie" ? "Films" : "Séries"} similaires</h2>
-              <Container url={similar(topic, id, 1)} />
+              <Container url={similar(topic, id, 1)} isActor={false} />
             </div>
           )}
         </div>

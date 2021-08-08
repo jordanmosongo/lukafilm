@@ -2,36 +2,20 @@ import { useState, useEffect } from "react";
 import AllApisPath from "../Apis/AllApisPath";
 
 const getTopic = () => {
-  switch (window.location.pathname) {
-    case "/films":
-      return "movie";
-    case "/series":
-      return "tv";
-    case "/acteurs":
-      return "person";
-    default:
-      return "multi";
-  }
+  const path = window.location.pathname;
+  if (path.indexOf("films") !== -1) return "movie";
+  if (path.indexOf("series") !== -1) return "tv";
+  if (path.indexOf("acteurs") !== -1) return "person";
+  return "multi";
 };
 const useSearch = (entryValue) => {
   const [moviesOrSeries, setMoviesOrSeries] = useState([]);
-  let arr = [];
   const { multiSearch } = AllApisPath;
-
   useEffect(() => {
-    for (let page = 1; page <= 8; page++) {
-      fetch(`${multiSearch(getTopic(), entryValue, page)}`)
-        .then((data) => {
-          return data.json();
-        })
-        .then(({ results }) => {
-          for (let result of results) {
-            arr.push(result);
-          }
-          setMoviesOrSeries([...arr]);
-        })
-        .catch((err) => console.log(err));
-    }
+    fetch(`${multiSearch(getTopic(), entryValue, 1)}`)
+      .then((data) => data.json())
+      .then(({ results }) => setMoviesOrSeries(results))
+      .catch((err) => console.log(err));
   }, [entryValue]);
   if (entryValue.length < 3) return [];
   return moviesOrSeries;

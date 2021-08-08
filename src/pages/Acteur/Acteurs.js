@@ -15,7 +15,7 @@ const Acteurs = () => {
       <div className="actors">
         <div className="container">
           <Title titre="Tous les acteurs" />
-          <Container url={popular("person", page)} />
+          <Container url={popular("person", page)} isActor={true} />
           <Paginate
             count={500}
             paginateFromChild={(pageValue) =>

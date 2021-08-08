@@ -12,7 +12,7 @@ const Popularity = (props) => {
   return (
     <div className="tendance">
       <div className="tendance__container">
-        <Container url={popular(props.topic, page)} />
+        <Container url={popular(props.topic, page)} isActor={false} />
         <Paginate
           count={500}
           paginateFromChild={(pageValue) => setPage(paginate(pageValue, page))}

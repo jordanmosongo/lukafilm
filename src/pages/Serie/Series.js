@@ -45,7 +45,7 @@ const Series = () => {
               }}
             />
           </div>
-          <Container url={discover("tv", page, genderId)} />
+          <Container url={discover("tv", page, genderId)} isActor={false} />
           <Paginate
             count={500}
             paginateFromChild={(pageValue) =>

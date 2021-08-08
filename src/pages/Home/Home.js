@@ -27,9 +27,11 @@ const Home = () => {
 
   const handleClickSelect = (event) => {
     setQuerySelect(!querySelect);
-    setItemSelected(!itemSelected);
     const item = event.target;
     dispatch(item.textContent);
+    item.textContent === "Séries"
+      ? setItemSelected(true)
+      : setItemSelected(false);
   };
   return (
     <div className="home">
@@ -57,7 +59,9 @@ const Home = () => {
         <Popularity topic={topic} />
       </topicContext.Provider>
       <Trending topic={topic} />
-      <Upcoming topic={topic} />
+      <topicContext.Provider value={topic}>
+        <Upcoming topic={topic} />
+      </topicContext.Provider>
     </div>
   );
 };

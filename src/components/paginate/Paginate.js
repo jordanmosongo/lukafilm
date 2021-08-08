@@ -20,12 +20,14 @@ const Paginate = (props) => {
     let pageValue;
     if (event.target.textContent) {
       pageValue = event.target.textContent;
-    } else {
-      const arrBtn = event.target.children[0].getAttribute("d");
-      arrBtn === "M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
-        ? (pageValue = "right")
-        : (pageValue = "left");
     }
+    //else {
+
+    // const arrBtn = event.target.children[0].getAttribute("d");
+    // arrBtn === "M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+    //   ? (pageValue = "right")
+    //   : (pageValue = "left");
+    //}
     props.paginateFromChild(pageValue);
   };
   return (
@@ -42,17 +44,15 @@ const Paginate = (props) => {
         <ArrowBackIosIcon
           className="page-icon"
           onClick={() => {
-            setPage((page) => (page > 1 ? page - 1 : 1));
-            props.paginateFromChild(page);
+            alert("Veuillez vous servir des boutons numérotés");
+            // setPage((page) => (page > 1 ? page - 1 : 1));
+            // props.paginateFromChild(page);
           }}
         />
         <span>{`page ${page}/500`}</span>
         <ArrowForwardIosIcon
           className="page-icon"
-          onClick={() => {
-            setPage((page) => (page < 500 ? page + 1 : 500));
-            props.paginateFromChild(page);
-          }}
+          onClick={() => alert("Veuillez vous servir des boutons numérotés")}
         />
       </div>
     </div>

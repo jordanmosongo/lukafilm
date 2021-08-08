@@ -29,6 +29,7 @@ const Detail = (props) => {
   };
   const seeMore = () => {
     history.push(`${topic === "movie" ? "films" : "series"}/${id}`);
+    props.isInSearchModal && props.closeSearchModal();
   };
   return (
     <div className="movie-card__effect">

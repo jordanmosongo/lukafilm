@@ -44,7 +44,7 @@ const Films = (props) => {
               }}
             />
           </div>
-          <Container url={discover("movie", page, genderId)} />
+          <Container url={discover("movie", page, genderId)} isActor={false} />
           <Paginate
             count={500}
             paginateFromChild={(pageValue) =>

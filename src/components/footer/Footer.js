@@ -9,7 +9,7 @@ const Footer = () => {
           LUKA<span>FILM</span>
         </h3>
         <p>
-          Ce produit utilise l'api TMDb mais pas approuvé par cette organisation{" "}
+          Ce produit utilise l'api TMDb
           <br /> Tous droits réservés &copy;2021
         </p>
         <div className="developpeur">

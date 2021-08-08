@@ -16,6 +16,7 @@ const SearchModal = (props) => {
   const { modal, paper } = useStyles();
 
   const moviesOrSeries = useSearch(entryValue);
+  console.log(moviesOrSeries);
   return (
     <div>
       <Modal
@@ -57,25 +58,29 @@ const SearchModal = (props) => {
               ) : (
                 <div className="results__title">
                   <p>
-                    <span>{moviesOrSeries.length}</span> resultats{" "}
+                    {Array.isArray(moviesOrSeries) && (
+                      <span>{moviesOrSeries.length}</span>
+                    )}{" "}
+                    resultats{" "}
                     <span className="resultat">pour {` "${entryValue} "`}</span>
                   </p>
                 </div>
               )}
               <div className="results__body">
                 <div className="movie-card-container">
-                  {moviesOrSeries.map((movie) => {
-                    return (
-                      <Card
-                        movie={movie}
-                        isInSearchModal={true}
-                        closeSearchModal={() => {
-                          setEntryValue("");
-                          closeModalFromChild();
-                        }}
-                      />
-                    );
-                  })}
+                  {Array.isArray(moviesOrSeries) &&
+                    moviesOrSeries.map((movie) => {
+                      return (
+                        <Card
+                          movie={movie}
+                          isInSearchModal={true}
+                          closeSearchModal={() => {
+                            setEntryValue("");
+                            closeModalFromChild();
+                          }}
+                        />
+                      );
+                    })}
                 </div>
               </div>
             </div>

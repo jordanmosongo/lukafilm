@@ -10,7 +10,7 @@ const Upcoming = ({ topic }) => {
     <div className="tendance">
       <Title titre={topic === "movie" ? "Films à venir" : "A l'antenne"} />
       <div className="tendance__container">
-        <Container url={upcoming(topic)} />
+        <Container url={upcoming(topic)} isActor={false} />
       </div>
     </div>
   );
