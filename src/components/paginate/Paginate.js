@@ -12,7 +12,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-
 const Paginate = (props) => {
   const [page, setPage] = useState(1);
   const classes = useStyles();
@@ -50,7 +49,7 @@ const Paginate = (props) => {
         <ArrowForwardIosIcon
           className="page-icon"
           onClick={() => {
-            setPage((page) => (page > 1 ? page + 1 : 1));
+            setPage((page) => (page < 500 ? page + 1 : 500));
             props.paginateFromChild(page);
           }}
         />
@@ -58,5 +57,4 @@ const Paginate = (props) => {
     </div>
   );
 };
-
 export default Paginate;
